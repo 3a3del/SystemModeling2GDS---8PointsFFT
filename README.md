@@ -139,6 +139,14 @@ Pipeline Stages: 3
 Latency: 5 clock cycles
 Throughput: 1 FFT per clock cycle (after initial latency)
 
+Summary:
+- **Algorithm Selection:** Chose Radix-2 DIT FFT for its efficiency.
+- **System Modeling:** Verified the FFT algorithm and optimized fixed-point sizing through simulation and error analysis.
+- **RTL Design:** Translated the system model into hardware description language (HDL) for synthesis, focusing on individual FFT stages.
+- **Design Verification:** Rigorously tested the RTL design using various test cases and MATLAB comparisons, analyzing latency and code coverage.
+- **FPGA Implementation:** Synthesized and implemented the verified RTL design onto an FPGA for prototyping, evaluating resource utilization and timing.
+- **ASIC Implementation:** Synthesized and implemented the design as an ASIC using Openlane and ICC flows, optimizing for performance, area, and power, and performing comparative analysis.
+
 
 Derivation of the Radix-2 FFT Algorithm
 DFT and FFT Concepts Forum
