@@ -64,8 +64,6 @@ Design Area: 20,360 μm²
 Utilization: 30%
 Total Power: 13.45 mW
 
-ASIC Impl files : https://drive.google.com/drive/folders/1zvHCn5AC-Wqilq5PWotKmar8CP48mm4J?usp=drive_link
-
 ✅ Verification
 The design has been thoroughly verified through:
 
