@@ -1,0 +1,62 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Aug 21 13:55:39 2025
+# Process ID: 37290
+# Current directory: /home/ICer/viv
+# Command line: vivado
+# Log file: /home/ICer/viv/vivado.log
+# Journal file: /home/ICer/viv/vivado.jou
+#-----------------------------------------------------------
+start_gui
+create_project fft_8 . -part xc7a200tfbg676-2
+set_property board_part xilinx.com:ac701:part0:1.4 [current_project]
+add_files -norecurse {/home/ICer/spy/fft_ThirdStage.v /home/ICer/spy/fft_FirstStage.v /home/ICer/spy/fft_SecondStage.v /home/ICer/spy/fft_8point_top.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+file mkdir /home/ICer/viv/fft_8.srcs/constrs_1
+file mkdir /home/ICer/viv/fft_8.srcs/constrs_1/new
+close [ open /home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc w ]
+add_files -fileset constrs_1 /home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+set_property board_part xilinx.com:kc705:part0:1.6 [current_project]
+reset_property board_connections [get_projects fft_8]
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1

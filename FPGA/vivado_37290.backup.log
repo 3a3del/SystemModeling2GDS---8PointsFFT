@@ -1,0 +1,108 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Aug 21 13:55:39 2025
+# Process ID: 37290
+# Current directory: /home/ICer/viv
+# Command line: vivado
+# Log file: /home/ICer/viv/vivado.log
+# Journal file: /home/ICer/viv/vivado.jou
+#-----------------------------------------------------------
+start_gui
+create_project fft_8 . -part xc7a200tfbg676-2
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/Xilinx/Vivado/2019.1/data/ip'.
+create_project: Time (s): cpu = 00:00:49 ; elapsed = 00:00:34 . Memory (MB): peak = 6489.480 ; gain = 41.957 ; free physical = 5712 ; free virtual = 18238
+set_property board_part xilinx.com:ac701:part0:1.4 [current_project]
+add_files -norecurse {/home/ICer/spy/fft_ThirdStage.v /home/ICer/spy/fft_FirstStage.v /home/ICer/spy/fft_SecondStage.v /home/ICer/spy/fft_8point_top.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+file mkdir /home/ICer/viv/fft_8.srcs/constrs_1
+file mkdir /home/ICer/viv/fft_8.srcs/constrs_1/new
+close [ open /home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc w ]
+add_files -fileset constrs_1 /home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc
+launch_runs synth_1 -jobs 2
+[Thu Aug 21 14:13:09 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Thu Aug 21 14:19:01 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 14:21:48 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+set_property board_part xilinx.com:kc705:part0:1.6 [current_project]
+WARNING: [Project 1-153] The current project device 'xc7a200tfbg676-2' does not match with the device on the 'XILINX.COM:KC705:PART0:1.6' board part. A device change to match the device on 'XILINX.COM:KC705:PART0:1.6' board part is being done. Please upgrade the IP in the project via the upgrade_ip command or by selecting Reports => Reports IP Status.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [Project 1-152] Project part set to kintex7 (xc7k325tffg900-2)
+reset_property board_connections [get_projects fft_8]
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Thu Aug 21 14:31:24 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 14:35:11 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 14:47:03 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 14:47:04 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 14:54:36 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 14:54:36 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 15:04:02 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 15:04:03 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 15:13:32 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 15:13:33 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 15:25:15 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 15:25:16 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 15:33:27 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 15:33:28 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 15:37:46 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 15:37:46 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 15:46:15 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 15:46:16 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 15:55:35 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 15:55:35 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 21 16:36:12 2025...

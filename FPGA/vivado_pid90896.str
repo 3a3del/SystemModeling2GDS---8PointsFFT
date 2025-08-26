@@ -1,0 +1,972 @@
+/*
+
+Xilinx Vivado v2019.1 (64-bit) [Major: 2019, Minor: 1]
+SW Build: 2552052 on Fri May 24 14:47:09 MDT 2019
+IP Build: 2548770 on Fri May 24 18:01:18 MDT 2019
+
+Process ID (PID): 90896
+License: Customer
+
+Current time: 	Thu Aug 21 22:47:03 CST 2025
+Time zone: 	China Standard Time (Asia/Shanghai)
+
+OS: CentOS Linux release 7.9.2009 (Core)
+OS Version: 3.10.0-1160.6.1.el7.x86_64
+OS Architecture: amd64
+Available processors (cores): 4
+
+Display: :0
+Screen size: 1164x616
+Screen resolution (DPI): 100
+Available screens: 1
+Available disk space: 13 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	9.0.4 64-bit
+Java home: 	/home/Xilinx/Vivado/2019.1/tps/lnx64/jre9.0.4
+Java executable location: 	/home/Xilinx/Vivado/2019.1/tps/lnx64/jre9.0.4/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	ICer
+User home directory: /home/ICer
+User working directory: /home/ICer/viv
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /home/Xilinx/Vivado
+HDI_APPROOT: /home/Xilinx/Vivado/2019.1
+RDI_DATADIR: /home/Xilinx/Vivado/2019.1/data
+RDI_BINDIR: /home/Xilinx/Vivado/2019.1/bin
+
+Vivado preferences file location: /home/ICer/.Xilinx/Vivado/2019.1/vivado.xml
+Vivado preferences directory: /home/ICer/.Xilinx/Vivado/2019.1/
+Vivado layouts directory: /home/ICer/.Xilinx/Vivado/2019.1/layouts
+PlanAhead jar file location: 	/home/Xilinx/Vivado/2019.1/lib/classes/planAhead.jar
+Vivado log file location: 	/home/ICer/viv/vivado.log
+Vivado journal file location: 	/home/ICer/viv/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-90896-IC_EDA
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /home/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_DSP: /home/Xilinx/Vivado/2019.1/ids_lite/ISE
+XILINX_PLANAHEAD: /home/Xilinx/Vivado/2019.1
+XILINX_SDK: /home/Xilinx/SDK/2019.1
+XILINX_VIVADO: /home/Xilinx/Vivado/2019.1
+XILINX_VIVADO_HLS: /home/Xilinx/Vivado/2019.1
+
+
+GUI allocated memory:	165 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 4,999 MB
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// WARNING: HEventQueue.dispatchEvent() is taking  1316 ms.
+// Tcl Message: start_gui 
+// HMemoryUtils.trashcanNow. Engine heap size: 5,004 MB. GUI used memory: 42 MB. Current time: 8/21/25, 10:47:05 PM CST
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "/home/ICer/viv/fft_8.xpr", 0); // q (O, cl)
+// by (cl):  Open Project : addNotify
+// Opening Vivado Project: /home/ICer/viv/fft_8.xpr. Version: Vivado v2019.1 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/ICer/viv/fft_8.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project /home/ICer/viv/fft_8.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/Xilinx/Vivado/2019.1/data/ip'. 
+// TclEventType: PROJECT_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 5,045 MB. GUI used memory: 42 MB. Current time: 8/21/25, 10:49:25 PM CST
+// [GUI Memory]: 55 MB (+55648kb) [00:02:58]
+// [Engine Memory]: 5,057 MB (+5151218kb) [00:02:58]
+// [GUI Memory]: 71 MB (+13317kb) [00:03:00]
+// [GUI Memory]: 96 MB (+22469kb) [00:03:06]
+// [GUI Memory]: 105 MB (+4381kb) [00:03:07]
+// WARNING: HEventQueue.dispatchEvent() is taking  14940 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 5,092 MB. GUI used memory: 51 MB. Current time: 8/21/25, 10:49:42 PM CST
+// WARNING: HEventQueue.dispatchEvent() is taking  1542 ms.
+// Tcl Message: open_project: Time (s): cpu = 00:00:37 ; elapsed = 00:00:20 . Memory (MB): peak = 6488.602 ; gain = 83.105 ; free physical = 5013 ; free virtual = 17708 
+// Project name: fft_8; location: /home/ICer/viv; part: xc7k325tffg900-2
+// WARNING: updateGUI() is taking  2984 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  3375 ms.
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 500ms to process. Increasing delay to 3000 ms.
+// Elapsed time: 28 seconds
+dismissDialog("Open Project"); // by (cl)
+// WARNING: HEventQueue.dispatchEvent() is taking  1267 ms.
+// WARNING: updateGUI() is taking  1092 ms.
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 1768ms to process. Increasing delay to 4000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1768 ms.
+// WARNING: updateGUI() is taking  1307 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1316 ms.
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 273 seconds
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; place_design ERROR ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; Thu Aug 21 16:00:18 CST 2025 ; 00:04:20 ; Vivado Implementation Defaults (Vivado Implementation 2019) ; Vivado Implementation Default Reports (Vivado Implementation 2019) ; xc7k325tffg900-2 ; IC_EDA ; Default settings for Implementation.", 1, "constrs_1", 1, false); // ay (O, cl)
+// PAPropertyPanels.initPanels (impl_1) elapsed time: 2.8s
+// WARNING: HEventQueue.dispatchEvent() is taking  3798 ms.
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "impl_1 ; constrs_1 ; place_design ERROR ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ;  ; Thu Aug 21 16:00:18 CST 2025 ; 00:04:20 ; Vivado Implementation Defaults (Vivado Implementation 2019) ; Vivado Implementation Default Reports (Vivado Implementation 2019) ; xc7k325tffg900-2 ; IC_EDA ; Default settings for Implementation.", 1, "constrs_1", 1, false, false, false, false, false, true); // ay (O, cl) - Double Click
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aK (aH, cl)
+// RDIResource.RDIViews_PROPERTIES: Implementation Run Properties: close view
+// Elapsed time: 17 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints]", 2); // B (F, cl)
+// PAPropertyPanels.initPanels (cons.xdc) elapsed time: 0.4s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, cons.xdc]", 4, false); // B (F, cl)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Constraints, constrs_1, cons.xdc]", 4, false, false, false, false, false, true); // B (F, cl) - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 5,129 MB. GUI used memory: 56 MB. Current time: 8/21/25, 10:54:51 PM CST
+// Elapsed time: 30 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fft_8point_top (fft_8point_top.v)]", 1, true); // B (F, cl) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fft_8point_top (fft_8point_top.v)]", 1, true, false, false, false, false, true); // B (F, cl) - Double Click - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 5,149 MB. GUI used memory: 57 MB. Current time: 8/21/25, 10:55:21 PM CST
+selectCodeEditor("fft_8point_top.v", 211, 17); // cl (w, cl)
+selectCodeEditor("fft_8point_top.v", 139, 78); // cl (w, cl)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 335ms to process. Increasing delay to 2000 ms.
+// [GUI Memory]: 115 MB (+4857kb) [00:12:05]
+// Elapsed time: 330 seconds
+selectCodeEditor("fft_8point_top.v", 102, 21); // cl (w, cl)
+selectCodeEditor("fft_8point_top.v", 172, 81); // cl (w, cl)
+// Elapsed time: 39 seconds
+selectCodeEditor("fft_8point_top.v", 206, 20); // cl (w, cl)
+// Elapsed time: 30 seconds
+selectCodeEditor("fft_8point_top.v", 237, 48); // cl (w, cl)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_8point_top.v", 225, 35); // cl (w, cl)
+// WARNING: HTimer (FileMgr Design Graph Update Timer) is taking 1294ms to process. Increasing delay to 5000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1294 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 5,184 MB. GUI used memory: 57 MB. Current time: 8/21/25, 11:02:14 PM CST
+// WARNING: updateGUI() is taking  1398 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1812 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 1206ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1206 ms.
+// WARNING: HTimer (StateMonitor Timer) is taking 1090ms to process. Increasing delay to 4000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1090 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 311ms to process. Increasing delay to 2000 ms.
+// Elapsed time: 69 seconds
+selectCodeEditor("fft_8point_top.v", 224, 39); // cl (w, cl)
+selectCodeEditor("fft_8point_top.v", 223, 55); // cl (w, cl)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// WARNING: HEventQueue.dispatchEvent() is taking  1151 ms.
+// Elapsed time: 30 seconds
+selectCodeEditor("fft_8point_top.v", 255, 52); // cl (w, cl)
+selectCodeEditor("fft_8point_top.v", 255, 52); // cl (w, cl)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("fft_8point_top.v", 348, 29); // cl (w, cl)
+selectCodeEditor("fft_8point_top.v", 312, 50); // cl (w, cl)
+selectCodeEditor("fft_8point_top.v", 311, 50); // cl (w, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,218 MB. GUI used memory: 58 MB. Current time: 8/21/25, 11:04:02 PM CST
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // k (j, cl)
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "Kintex-7 KC705 Evaluation Platform (xc7k325tffg900-2)"); // h (Q, cl)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// D (cl): Settings: addNotify
+// 'dz' command handler elapsed time: 10 seconds
+// WARNING: HEventQueue.dispatchEvent() is taking  11348 ms.
+// Thread: Common-Cleaner
+// 	at java.base@9.0.4/java.lang.Object.wait(Native Method)
+// 	at java.base@9.0.4/java.lang.ref.ReferenceQueue.remove(Unknown Source)
+// 	at java.base@9.0.4/jdk.internal.ref.CleanerImpl.run(Unknown Source)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// 	at java.base@9.0.4/jdk.internal.misc.InnocuousThread.run(Unknown Source)
+// Thread: Timer-0
+// 	at java.base@9.0.4/java.lang.Object.wait(Native Method)
+// 	at java.base@9.0.4/java.util.TimerThread.mainLoop(Unknown Source)
+// 	at java.base@9.0.4/java.util.TimerThread.run(Unknown Source)
+// Thread: AWT-Shutdown
+// 	at java.base@9.0.4/java.lang.Object.wait(Native Method)
+// 	at java.base@9.0.4/java.lang.Object.wait(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.AWTAutoShutdown.run(Unknown Source)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// Thread: Image Animator 0
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at java.desktop@9.0.4/sun.awt.image.GifFrame.dispose(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.GifImageDecoder.readImage(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.GifImageDecoder.produceImage(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.InputStreamImageSource.doFetch(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.ImageFetcher.fetchloop(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.ImageFetcher.run(Unknown Source)
+// Thread: Monitor File Timestamp Swing Worker
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at ui.views.e.construct(SourceFile:232)
+// 	at ui.frmwork.y.run(SourceFile:205)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// Thread: Reference Handler
+// 	at java.base@9.0.4/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+// 	at java.base@9.0.4/java.lang.ref.Reference.processPendingReferences(Unknown Source)
+// 	at java.base@9.0.4/java.lang.ref.Reference.access$000(Unknown Source)
+// 	at java.base@9.0.4/java.lang.ref.Reference$ReferenceHandler.run(Unknown Source)
+// Thread: Thread-1
+// Thread: Image Animator 0
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at java.desktop@9.0.4/sun.awt.image.GifFrame.dispose(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.GifImageDecoder.readImage(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.GifImageDecoder.produceImage(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.InputStreamImageSource.doFetch(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.ImageFetcher.fetchloop(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.image.ImageFetcher.run(Unknown Source)
+// Thread: TimerQueue
+// 	at java.base@9.0.4/jdk.internal.misc.Unsafe.park(Native Method)
+// 	at java.base@9.0.4/java.util.concurrent.locks.LockSupport.parkNanos(Unknown Source)
+// 	at java.base@9.0.4/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(Unknown Source)
+// 	at java.base@9.0.4/java.util.concurrent.DelayQueue.take(Unknown Source)
+// 	at java.desktop@9.0.4/javax.swing.TimerQueue.run(Unknown Source)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// Thread: SyntheticaAnimation 70
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at de.javasoft.plaf.synthetica.painter.AnimationThreadFactory$AnimationThread.run(AnimationThreadFactory.java:119)
+// Thread: hw_ila_monitor
+// 	at java.base@9.0.4/java.lang.Object.wait(Native Method)
+// 	at java.base@9.0.4/java.lang.Object.wait(Unknown Source)
+// 	at java.base@9.0.4/java.util.TimerThread.mainLoop(Unknown Source)
+// 	at java.base@9.0.4/java.util.TimerThread.run(Unknown Source)
+// Thread: SyntheticaCleanerThread
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at de.javasoft.plaf.synthetica.StyleFactory$ComponentPropertyStore$1.run(StyleFactory.java:1847)
+// Thread: AWT-XAWT
+// 	at java.desktop@9.0.4/sun.awt.X11.XToolkit.waitForEvents(Native Method)
+// 	at java.desktop@9.0.4/sun.awt.X11.XToolkit.run(Unknown Source)
+// 	at java.desktop@9.0.4/sun.awt.X11.XToolkit.run(Unknown Source)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// Thread: Attach Listener
+// Thread: Finalizer
+// 	at java.base@9.0.4/java.lang.Object.wait(Native Method)
+// 	at java.base@9.0.4/java.lang.ref.ReferenceQueue.remove(Unknown Source)
+// 	at java.base@9.0.4/java.lang.ref.ReferenceQueue.remove(Unknown Source)
+// 	at java.base@9.0.4/java.lang.ref.Finalizer$FinalizerThread.run(Unknown Source)
+// Thread: Refresh Filesets Swing Worker
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at ui.data.design.y.construct(SourceFile:2494)
+// 	at ui.frmwork.y.run(SourceFile:205)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// Thread: main
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at ui.PlanAhead.b(SourceFile:1095)
+// 	at ui.PlanAhead.jswMain(SourceFile:1150)
+// Thread: SyntheticaAnimation 50
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at ui.utils.lnf.b.run(SourceFile:100)
+// Thread: Update Runs Swing Worker
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at ui.data.experiment.A.construct(SourceFile:316)
+// 	at ui.frmwork.y.run(SourceFile:205)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// Thread: SyntheticaAnimation 25
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at de.javasoft.plaf.synthetica.painter.AnimationThreadFactory$AnimationThread.run(AnimationThreadFactory.java:119)
+// Thread: Monitor HEventQueue
+// 	at java.base@9.0.4/java.lang.Thread.dumpThreads(Native Method)
+// 	at java.base@9.0.4/java.lang.Thread.getAllStackTraces(Unknown Source)
+// 	at ui.utils.d.c.eAO(SourceFile:484)
+// 	at ui.frmwork.b.e.construct(SourceFile:140)
+// 	at ui.frmwork.y.run(SourceFile:205)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// Thread: AWT-EventQueue-0
+// 	at java.base@9.0.4/java.lang.String.intern(Native Method)
+// 	at java.desktop@9.0.4/javax.swing.plaf.synth.SynthLookAndFeel.createUI(Unknown Source)
+// 	at java.base@9.0.4/jdk.internal.reflect.GeneratedMethodAccessor1.invoke(Unknown Source)
+// 	at java.base@9.0.4/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+// 	at java.base@9.0.4/java.lang.reflect.Method.invoke(Unknown Source)
+// 	at java.desktop@9.0.4/javax.swing.UIDefaults.getUI(Unknown Source)
+// 	at java.desktop@9.0.4/javax.swing.UIManager.getUI(Unknown Source)
+// 	at java.desktop@9.0.4/javax.swing.JPanel.updateUI(Unknown Source)
+// 	at com.jidesoft.swing.LabeledTextField.updateUI(Unknown Source)
+// 	at com.jidesoft.swing.LabeledTextField.initComponent(Unknown Source)
+// 	at com.jidesoft.grid.QuickFilterField.initComponent(Unknown Source)
+// 	at com.jidesoft.swing.LabeledTextField.<init>(Unknown Source)
+// 	at com.jidesoft.swing.LabeledTextField.<init>(Unknown Source)
+// 	at com.jidesoft.grid.QuickFilterField.<init>(Unknown Source)
+// 	at com.jidesoft.grid.QuickTableFilterField.<init>(Unknown Source)
+// 	at com.jidesoft.grid.QuickTableFilterField.<init>(Unknown Source)
+// 	at ui.utils.i.j.aF.<init>(SourceFile:17)
+// 	at ui.utils.i.j.ar.eEj(SourceFile:321)
+// 	at ui.utils.i.j.ar.cAK(SourceFile:298)
+// 	at ui.utils.i.j.ar.a(SourceFile:337)
+// 	at ui.utils.i.j.ar.b(SourceFile:399)
+// 	at ui.utils.i.j.ar.setModel(SourceFile:353)
+// 	at ui.b.A.b.createModel(SourceFile:105)
+// 	at ui.b.K.l.dLZ(SourceFile:125)
+// 	at ui.b.K.l.dzA(SourceFile:71)
+// 	at ui.b.K.l.dzz(SourceFile:63)
+// 	at ui.b.K.l.dLL(SourceFile:29)
+// 	at ui.b.K.b.afT(SourceFile:87)
+// 	at ui.b.K.D.kX(SourceFile:543)
+// 	at ui.b.K.D.da(SourceFile:409)
+// 	at ui.b.c.p.cCv(SourceFile:104)
+// 	at ui.b.c.p.cCt(SourceFile:55)
+// 	at ui.b.c.p.init(SourceFile:44)
+// 	at ui.b.K.D.init(SourceFile:150)
+// 	at ui.b.K.D.<init>(SourceFile:126)
+// 	at ui.views.c.dz.bJ(SourceFile:112)
+// 	at ui.views.c.dz.fkc(SourceFile:86)
+// 	at ui.views.c.dz.run(SourceFile:78)
+// 	at ui.frmwork.a.dWF(SourceFile:132)
+// 	at ui.views.Q.f.actionPerformed(SourceFile:469)
+// 	at ui.utils.o.b.j.actionPerformed(SourceFile:109)
+// 	at java.desktop@9.0.4/javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+// 	at ui.utils.o.b.k.fireActionPerformed(SourceFile:140)
+// 	at java.desktop@9.0.4/javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+// 	at java.desktop@9.0.4/javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+// 	at java.desktop@9.0.4/javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+// 	at java.desktop@9.0.4/javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+// 	at com.jidesoft.plaf.basic.BasicJideButtonListener.mouseReleased(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.AWTEventMulticaster.mouseReleased(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.Component.processMouseEvent(Unknown Source)
+// 	at java.desktop@9.0.4/javax.swing.JComponent.processMouseEvent(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.Component.processEvent(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.Container.processEvent(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.Component.dispatchEventImpl(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.Container.dispatchEventImpl(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.Component.dispatchEvent(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.Container.dispatchEventImpl(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.Window.dispatchEventImpl(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.Component.dispatchEvent(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventQueue.access$500(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventQueue$3.run(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventQueue$3.run(Unknown Source)
+// 	at java.base@9.0.4/java.security.AccessController.doPrivileged(Native Method)
+// 	at java.base@9.0.4/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+// 	at java.base@9.0.4/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventQueue$4.run(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventQueue$4.run(Unknown Source)
+// 	at java.base@9.0.4/java.security.AccessController.doPrivileged(Native Method)
+// 	at java.base@9.0.4/java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventQueue.dispatchEvent(Unknown Source)
+// 	at ui.frmwork.b.d.dispatchEvent(SourceFile:88)
+// 	at java.desktop@9.0.4/java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+// 	at java.desktop@9.0.4/java.awt.EventDispatchThread.run(Unknown Source)
+// Thread: Batik CleanerThread
+// 	at java.base@9.0.4/java.lang.Object.wait(Native Method)
+// 	at java.base@9.0.4/java.lang.ref.ReferenceQueue.remove(Unknown Source)
+// 	at java.base@9.0.4/java.lang.ref.ReferenceQueue.remove(Unknown Source)
+// 	at org.apache.batik.util.CleanerThread.run(CleanerThread.java:106)
+// Thread: Java2D Disposer
+// 	at java.base@9.0.4/java.lang.Object.wait(Native Method)
+// 	at java.base@9.0.4/java.lang.ref.ReferenceQueue.remove(Unknown Source)
+// 	at java.base@9.0.4/java.lang.ref.ReferenceQueue.remove(Unknown Source)
+// 	at java.desktop@9.0.4/sun.java2d.Disposer.run(Unknown Source)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// Thread: SyntheticaAnimation 50
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at de.javasoft.plaf.synthetica.painter.AnimationThreadFactory$AnimationThread.run(AnimationThreadFactory.java:119)
+// Thread: Process Messages
+// 	at java.base@9.0.4/java.lang.Thread.sleep(Native Method)
+// 	at ui.frmwork.d.h.construct(SourceFile:133)
+// 	at ui.frmwork.y.run(SourceFile:205)
+// 	at java.base@9.0.4/java.lang.Thread.run(Unknown Source)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,251 MB. GUI used memory: 76 MB. Current time: 8/21/25, 11:04:22 PM CST
+// Elapsed time: 23 seconds
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // ah (an, D)
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 270ms to process. Increasing delay to 2000 ms.
+// [GUI Memory]: 134 MB (+14205kb) [00:18:43]
+// Elapsed time: 94 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (D)
+dismissDialog("Settings"); // D (cl)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_8point_top.v", 2); // k (j, cl)
+selectCodeEditor("fft_8point_top.v", 199, 13); // cl (w, cl)
+typeControlKey((HResource) null, "fft_8point_top.v", 'c'); // cl (w, cl)
+typeControlKey((HResource) null, "fft_8point_top.v", 'c'); // cl (w, cl)
+// Elapsed time: 133 seconds
+selectCodeEditor("fft_8point_top.v", 113, 83); // cl (w, cl)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cons.xdc", 1); // k (j, cl)
+selectCodeEditor("cons.xdc", 193, 41); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+// Elapsed time: 24 seconds
+selectCodeEditor("cons.xdc", 20, 70); // cl (w, cl)
+selectCodeEditor("cons.xdc", 511, 63); // cl (w, cl)
+selectCodeEditor("cons.xdc", 19, 82); // cl (w, cl)
+selectCodeEditor("cons.xdc", 40, 95); // cl (w, cl)
+selectCodeEditor("cons.xdc", 134, 92); // cl (w, cl)
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 28 seconds
+selectCodeEditor("cons.xdc", 228, 71); // cl (w, cl)
+// Elapsed time: 68 seconds
+selectCodeEditor("cons.xdc", 3, 82); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+// Elapsed time: 20 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // u (O, cl)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// by (cl):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (cl): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (f)
+// WARNING: HEventQueue.dispatchEvent() is taking  1025 ms.
+dismissDialog("Launch Runs"); // f (cl)
+selectCodeEditor("cons.xdc", 187, 69); // cl (w, cl)
+selectCodeEditor("cons.xdc", 75, 101); // cl (w, cl)
+selectCodeEditor("cons.xdc", 73, 100); // cl (w, cl)
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // u (O, cl)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// f (cl): Launch Runs: addNotify
+selectButton("OptionPane.button", "OK"); // JButton (A, G)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// by (cl):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (cl)
+// TclEventType: RUN_LAUNCH
+// Tcl Message: launch_runs impl_1 -jobs 2 
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// WARNING: HEventQueue.dispatchEvent() is taking  1231 ms.
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Aug 21 23:12:08 2025] Launched synth_1... Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log 
+// TclEventType: RUN_MODIFY
+// WARNING: HEventQueue.dispatchEvent() is taking  1688 ms.
+// Tcl Message: [Thu Aug 21 23:12:09 2025] Launched impl_1... Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log 
+// Tcl Message: launch_runs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 6777.785 ; gain = 0.000 ; free physical = 4928 ; free virtual = 17622 
+// 'c' command handler elapsed time: 10 seconds
+dismissDialog("Starting Design Runs"); // by (cl)
+// TclEventType: RUN_STATUS_CHANGE
+// WARNING: HEventQueue.dispatchEvent() is taking  1669 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 241ms to process. Increasing delay to 2000 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 234ms to process. Increasing delay to 2000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1240 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 1146ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1146 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1013 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  4115 ms.
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// WARNING: HTimer (ExpRunMgr Pending Runs Timer) is taking 1127ms to process. Increasing delay to 3000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1128 ms.
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// ah (cl): Implementation Failed: addNotify
+// Elapsed time: 712 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Implementation Failed"); // ah (cl)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'W15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:66]. ]", 2); // ah (O, cl)
+// Elapsed time: 10 seconds
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Place Design, DRC, Pin Planning, IO Standard, [DRC BIVC-1] Bank IO standard Vcc: Conflicting Vcc voltages in bank 33. For example, the following two ports in this bank have conflicting VCCOs:  . done (LVCMOS15, requiring VCCO=1.500) and x_in_0_real[0] (LVCMOS25, requiring VCCO=2.500). ]", 93); // ah (O, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'W15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:66]. , [Common 17-69] Command failed: 'AK7' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:374]. ]", 86, false); // ah (O, cl)
+typeControlKey(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 'a'); // ah (O, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'W15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:66]. , [Common 17-69] Command failed: 'AK7' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:374]. ]", 86, false, false, false, false, true, false); // ah (O, cl) - Popup Trigger
+selectMenu(PAResourceItoN.MsgTreePanel_MESSAGE_SEVERITY, "Message Severity"); // ae (K, cl)
+// Elapsed time: 14 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_1_imag[1] cannot be placed on AC17 (IOB_X1Y13) because the pad is already occupied by terminal x_in_1_real[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:248]. ]", 87, true, false, false, false, true, false); // ah (O, cl) - Popup Trigger - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_1_imag[1] cannot be placed on AC17 (IOB_X1Y13) because the pad is already occupied by terminal x_in_1_real[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:248]. ]", 87, true, false, false, false, true, false); // ah (O, cl) - Popup Trigger - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'W15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:66]. , [Common 17-69] Command failed: 'AK7' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:374]. ]", 86, false, false, false, false, true, false); // ah (O, cl) - Popup Trigger
+// Elapsed time: 15 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization]", 1, true, false, false, false, true, false); // ah (O, cl) - Popup Trigger - Node
+selectMenu(PAResourceItoN.MsgTreePanel_MESSAGE_SEVERITY, "Message Severity"); // ae (K, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization]", 1, true); // ah (O, cl) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'W15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:66]. ]", 2, true); // ah (O, cl) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'W15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:66]. ]", 2, true, false, false, false, true, false); // ah (O, cl) - Popup Trigger - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization]", 1, true); // ah (O, cl) - Node
+typeControlKey(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 'a'); // ah (O, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization]", 1, true, false, false, false, true, false); // ah (O, cl) - Popup Trigger - Node
+// Elapsed time: 12 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Place Design, DRC, Netlist, Port, Invalid attribute value, [DRC IOSTDTYPE-1] IOStandard Type: I/O port clk is Single-Ended but has an IOStandard of LVDS which can only support Differential. ]", 98, false, false, false, false, true, false); // ah (O, cl) - Popup Trigger
+selectMenu(PAResourceItoN.MsgTreePanel_MESSAGE_SEVERITY, "Message Severity"); // ae (K, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Place Design, DRC, Netlist, Port, Invalid attribute value, [DRC IOSTDTYPE-1] IOStandard Type: I/O port clk is Single-Ended but has an IOStandard of LVDS which can only support Differential. ]", 98, false, false, false, false, true, false); // ah (O, cl) - Popup Trigger
+// Elapsed time: 10 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Place Design, DRC, Netlist, Port, Invalid attribute value]", 97, true); // ah (O, cl) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Place Design, DRC, Pin Planning, IO Standard, [DRC BIVC-1] Bank IO standard Vcc: Conflicting Vcc voltages in bank 33. For example, the following two ports in this bank have conflicting VCCOs:  . done (LVCMOS15, requiring VCCO=1.500) and x_in_0_real[0] (LVCMOS25, requiring VCCO=2.500). , [DRC BIVC-1] Bank IO standard Vcc: Conflicting Vcc voltages in bank 34. For example, the following two ports in this bank have conflicting VCCOs:  . rst_n (LVCMOS15, requiring VCCO=1.500) and x_out_7_imag[1] (LVCMOS25, requiring VCCO=2.500). ]", 94, false); // ah (O, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Place Design, DRC, Pin Planning, IO Standard, [DRC BIVC-1] Bank IO standard Vcc: Conflicting Vcc voltages in bank 33. For example, the following two ports in this bank have conflicting VCCOs:  . done (LVCMOS15, requiring VCCO=1.500) and x_in_0_real[0] (LVCMOS25, requiring VCCO=2.500). , [DRC BIVC-1] Bank IO standard Vcc: Conflicting Vcc voltages in bank 34. For example, the following two ports in this bank have conflicting VCCOs:  . rst_n (LVCMOS15, requiring VCCO=1.500) and x_out_7_imag[1] (LVCMOS25, requiring VCCO=2.500). ]", 94, false, false, false, false, true, false); // ah (O, cl) - Popup Trigger
+// Elapsed time: 17 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Place Design, DRC, Netlist, Port, Invalid attribute value, [DRC IOSTDTYPE-1] IOStandard Type: I/O port clk is Single-Ended but has an IOStandard of LVDS which can only support Differential. ]", 98, false, false, false, false, true, false); // ah (O, cl) - Popup Trigger
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Place Design, DRC, Netlist, Port, Invalid attribute value]", 97, true); // ah (O, cl) - Node
+typeControlKey(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 'a'); // ah (O, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Place Design, DRC, Netlist, Port, Invalid attribute value]", 97, true, false, false, false, true, false); // ah (O, cl) - Popup Trigger - Node
+selectMenu(PAResourceItoN.MsgTreePanel_MESSAGE_SEVERITY, "Message Severity"); // ae (K, cl)
+// Elapsed time: 145 seconds
+selectCodeEditor("cons.xdc", 439, 105); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 167 seconds
+selectCodeEditor("cons.xdc", 119, 94); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+selectCodeEditor("cons.xdc", 120, 77); // cl (w, cl)
+// Elapsed time: 10 seconds
+selectCodeEditor("cons.xdc", 2, 35); // cl (w, cl)
+selectCodeEditor("cons.xdc", 79, 111); // cl (w, cl)
+selectCodeEditor("cons.xdc", 54, 74); // cl (w, cl)
+selectCodeEditor("cons.xdc", 65, 113); // cl (w, cl)
+// Elapsed time: 25 seconds
+selectCodeEditor("cons.xdc", 3, 65); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // u (O, cl)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// by (cl):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (cl): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// by (cl):  Starting Design Runs : addNotify
+// TclEventType: RUN_LAUNCH
+dismissDialog("Launch Runs"); // f (cl)
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -jobs 2 
+// Tcl Message: [Thu Aug 21 23:32:50 2025] Launched synth_1... Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Aug 21 23:32:50 2025] Launched impl_1... Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log 
+dismissDialog("Starting Design Runs"); // by (cl)
+// TclEventType: RUN_STATUS_CHANGE
+// WARNING: HEventQueue.dispatchEvent() is taking  1093 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 5,245 MB. GUI used memory: 75 MB. Current time: 8/21/25, 11:34:24 PM CST
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// WARNING: HTimer (ExpRunMgr Pending Runs Timer) is taking 789ms to process. Increasing delay to 4000 ms.
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// ah (cl): Implementation Failed: addNotify
+// Elapsed time: 355 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Implementation Failed"); // ah (cl)
+// Elapsed time: 18 seconds
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'AC8' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:37]. ]", 2); // ah (O, cl)
+// Elapsed time: 34 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // k (j, cl)
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "Kintex-7 KC705 Evaluation Platform (xc7k325tffg900-2)"); // h (Q, cl)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// D (cl): Settings: addNotify
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "Kintex-7 KC705 Evaluation Platform (xc7k325tffg900-2)"); // h (Q, cl)
+selectButton(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, (String) null); // q (a, D)
+selectButton(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, (String) null); // q (a, D)
+// c (D): Select Device: addNotify
+// Elapsed time: 22 seconds
+selectTable(PAResourceAtoD.BoardChooser_BOARD_TABLE, "Artix-7 AC701 Evaluation Platform ; Artix-7 AC701 Evaluation Platform ; xilinx.com ; 1.4 ; xc7a200tfbg676-2 ; 676 ; 1.1 ; 400 ; 134600 ; 269200 ; 365 ; 0 ; 740 ; 8 ; 8 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 1 ; 10 ;  ;  ;  ;  ; 0.95 ; 0.95 ; 1.05", 2, "Artix-7 AC701 Evaluation Platform", 0); // d (O, c)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (c)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (c)
+dismissDialog("Select Device"); // c (D)
+setText(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // Y (a, D)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (D)
+// A (cl): Create New Run: addNotify
+selectButton(RDIResource.BaseDialog_NO, "No"); // a (A)
+selectButton(RDIResource.BaseDialog_NO, "No"); // a (A)
+// by (cl):  Change Settings : addNotify
+dismissDialog("Create New Run"); // A (cl)
+// TclEventType: RUN_MODIFY
+// Tcl Message: set_property board_part xilinx.com:ac701:part0:1.4 [current_project] 
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PART_MODIFIED
+// TclEventType: BOARD_MODIFIED
+// Tcl Message: INFO: [Project 1-152] Project part set to artix7 (xc7a200tfbg676-2) 
+// TclEventType: BOARD_MODIFIED
+// Tcl Message: reset_property board_connections [get_projects fft_8] 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (D)
+dismissDialog("Change Settings"); // by (cl)
+dismissDialog("Settings"); // D (cl)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cons.xdc", 1); // k (j, cl)
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 525ms to process. Increasing delay to 2000 ms.
+// Elapsed time: 85 seconds
+selectCodeEditor("cons.xdc", 137, 62); // cl (w, cl)
+// Elapsed time: 15 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_8point_top.v", 2); // k (j, cl)
+selectCodeEditor("fft_8point_top.v", 169, 54); // cl (w, cl)
+// Elapsed time: 117 seconds
+selectCodeEditor("fft_8point_top.v", 291, 53); // cl (w, cl)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cons.xdc", 1); // k (j, cl)
+selectCodeEditor("cons.xdc", 211, 47); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("cons.xdc", 282, 111); // cl (w, cl)
+selectCodeEditor("cons.xdc", 425, 56); // cl (w, cl)
+// Elapsed time: 16 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // u (O, cl)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// by (cl):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (cl): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (f)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (f)
+dismissDialog("Launch Runs"); // f (cl)
+// Elapsed time: 35 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_8point_top.v", 2); // k (j, cl)
+selectCodeEditor("fft_8point_top.v", 207, 26); // cl (w, cl)
+typeControlKey((HResource) null, "fft_8point_top.v", 'c'); // cl (w, cl)
+// Elapsed time: 64 seconds
+selectCodeEditor("fft_8point_top.v", 130, 56, false, false, false, true, false); // cl (w, cl) - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // ah (an, Popup.HeavyWeightWindow)
+// Elapsed time: 448 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cons.xdc", 1); // k (j, cl)
+selectCodeEditor("cons.xdc", 179, 18); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+// Elapsed time: 175 seconds
+selectCodeEditor("cons.xdc", 189, 45); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 141 MB (+567kb) [01:10:33]
+// [GUI Memory]: 149 MB (+412kb) [01:10:47]
+// Elapsed time: 14 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Implementation, Run Implementation]", 17, false); // u (O, cl)
+// Run Command: PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION
+// f (cl): Launch Runs: addNotify
+selectButton("OptionPane.button", "OK"); // JButton (A, G)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// by (cl):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (cl)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs impl_1 -jobs 2 
+// Tcl Message: [Thu Aug 21 23:57:22 2025] Launched synth_1... Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Thu Aug 21 23:57:23 2025] Launched impl_1... Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log 
+// 'c' command handler elapsed time: 4 seconds
+dismissDialog("Starting Design Runs"); // by (cl)
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// HMemoryUtils.trashcanNow. Engine heap size: 5,245 MB. GUI used memory: 79 MB. Current time: 8/22/25, 12:04:24 AM CST
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// WARNING: HTimer (ExpRunMgr Pending Runs Timer) is taking 1193ms to process. Increasing delay to 5000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1193 ms.
+// ah (cl): Implementation Completed: addNotify
+// Elapsed time: 499 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_IMPLEMENTED_DESIGN
+// by (cl):  Open Implemented Design : addNotify
+// Tcl Message: open_run impl_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 5,348 MB. GUI used memory: 81 MB. Current time: 8/22/25, 12:05:49 AM CST
+// Elapsed time: 14 seconds
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a (by)
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a (by)
+// 'dR' command handler elapsed time: 14 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// [Engine Memory]: 5,448 MB (+144856kb) [01:19:25]
+// HMemoryUtils.trashcanNow. Engine heap size: 5,542 MB. GUI used memory: 81 MB. Current time: 8/22/25, 12:06:04 AM CST
+// Elapsed time: 19 seconds
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:34]. ]", 4); // ah (O, cl)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:31]. ]", 3); // ah (O, cl)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'G14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:23]. ]", 2); // ah (O, cl)
+// HMemoryUtils.trashcanNow. Engine heap size: 5,666 MB. GUI used memory: 81 MB. Current time: 8/22/25, 12:06:24 AM CST
+// TclEventType: SDC_CONSTRAINT_ADD
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Route Design, [Route 35-54] Net: x_in_1_imag_IBUF[3] is not completely routed.. ]", 176); // ah (O, cl)
+// TclEventType: POWER_CNS_STALE
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 6,074 MB. GUI used memory: 81 MB. Current time: 8/22/25, 12:06:31 AM CST
+// [Engine Memory]: 6,074 MB (+371000kb) [01:20:00]
+// Xgd.load filename: /home/Xilinx/Vivado/2019.1/data/parts/xilinx/artix7/devint/artix7/xc7a200t/xc7a200t.xgd; ZipEntry: xc7a200t_floorplan.xgd elapsed time: 0.8s
+// Xgd.load filename: /home/Xilinx/Vivado/2019.1/data/parts/xilinx/artix7/devint/artix7/xc7a200t/xc7a200t.xgd; ZipEntry: xc7a200t_detail.xgd elapsed time: 2.9s
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// RouteApi::loadEngineXgd elapsed time: 6.2s
+// Elapsed time: 10 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Route Design, [Route 35-1] Design is not completely routed. There are  10  nets that are not completely routed.. ]", 197, false); // ah (O, cl)
+// TclEventType: DESIGN_NEW
+// [GUI Memory]: 160 MB (+3432kb) [01:20:12]
+// Device: addNotify
+// [GUI Memory]: 170 MB (+2760kb) [01:20:15]
+// DeviceView Instantiated
+// PAPropertyPanels.initPanels (fft_8point_top.v) elapsed time: 0.4s
+// WARNING: HEventQueue.dispatchEvent() is taking  9656 ms.
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Device 21-403] Loading part xc7a200tfbg676-2 INFO: [Netlist 29-17] Analyzing 170 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2019.1 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Timing 38-478] Restoring timing data from binary archive. INFO: [Timing 38-479] Binary timing data restore complete. INFO: [Project 1-856] Restoring constraints from binary archive. INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are: 
+// Tcl Message:   general.maxThreads 
+// Tcl Message: INFO: [Project 1-853] Binary constraint restore complete. 
+// Tcl Message: Reading XDEF placement. Reading placer database... Reading XDEF routing. 
+// Tcl Message: Read XDEF File: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.69 . Memory (MB): peak = 7598.805 ; gain = 0.000 ; free physical = 3994 ; free virtual = 16695 
+// Tcl Message: Restored from archive | CPU: 1.880000 secs | Memory: 5.902939 MB | 
+// Tcl Message: Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.69 . Memory (MB): peak = 7598.805 ; gain = 0.000 ; free physical = 3994 ; free virtual = 16695 Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 7598.805 ; gain = 0.000 ; free physical = 3994 ; free virtual = 16695 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Elapsed time: 10 seconds
+selectTab((HResource) null, (HResource) null, "Timing", 5); // aK (aH, cl)
+// Tcl Message: open_run: Time (s): cpu = 00:01:36 ; elapsed = 00:01:06 . Memory (MB): peak = 7791.430 ; gain = 1013.645 ; free physical = 3859 ; free virtual = 16561 
+// WARNING: HEventQueue.dispatchEvent() is taking  1156 ms.
+// ExpRunCommands.openImplResults elapsed time: 68.9s
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// TclEventType: DRC_ADDED
+// Device view-level: 0.0
+// WARNING: HEventQueue.dispatchEvent() is taking  2656 ms.
+// TclEventType: DRC_ADDED
+// WARNING: updateGUI() is taking  1090 ms.
+// TclEventType: METHODOLOGY_ADDED
+// Device view-level: 0.1
+// WARNING: HEventQueue.dispatchEvent() is taking  1025 ms.
+// TclEventType: METHODOLOGY_ADDED
+// TclEventType: POWER_UPDATED
+// WARNING: HEventQueue.dispatchEvent() is taking  4079 ms.
+// TclEventType: TIMING_SUMMARY_UPDATED
+// Elapsed time: 15 seconds
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aK (aH, cl)
+// WARNING: HEventQueue.dispatchEvent() is taking  2581 ms.
+// [GUI Memory]: 181 MB (+2090kb) [01:20:37]
+// S (cl): Critical Messages: addNotify
+dismissDialog("Open Implemented Design"); // by (cl)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (S)
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f (S)
+dismissDialog("Critical Messages"); // S (cl)
+closeView(PAResourceOtoP.PAViews_DEVICE, "Device"); // U
+// Elapsed time: 20 seconds
+selectTab((HResource) null, (HResource) null, "Log", 2); // aK (aH, cl)
+maximizeFrame(PAResourceOtoP.PAViews_COMPILATION, "Log"); // az (aK, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Route Design, [Route 35-54] Net: x_in_1_imag_IBUF[3] is not completely routed.. , [Route 35-54] Net: x_in_1_real_IBUF[1] is not completely routed.. ]", 195, false); // ah (O, cl)
+typeControlKey(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 'a'); // ah (O, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Route Design, [Route 35-54] Net: x_in_1_imag_IBUF[3] is not completely routed.. , [Route 35-54] Net: x_in_1_real_IBUF[1] is not completely routed.. ]", 195, false, false, false, false, true, false); // ah (O, cl) - Popup Trigger
+// Elapsed time: 47 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Route Design, [Route 35-54] Net: x_in_1_imag_IBUF[3] is not completely routed.. , [Route 35-54] Net: x_in_1_real_IBUF[1] is not completely routed.. ]", 195, false, false, false, false, true, false); // ah (O, cl) - Popup Trigger
+// WARNING: HEventQueue.dispatchEvent() is taking  1081 ms.
+// Elapsed time: 276 seconds
+unMaximizeFrame(PAResourceOtoP.PAViews_MESSAGES, "Messages"); // az (aK, cl)
+selectCodeEditor("cons.xdc", 225, 42); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'c'); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'c'); // cl (w, cl)
+// Elapsed time: 15 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // k (j, cl)
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // h (Q, cl)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// D (cl): Settings: addNotify
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // h (Q, cl)
+// Elapsed time: 23 seconds
+setText(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // Y (a, D)
+dismissDialog("Settings"); // D (cl)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // u (O, cl)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// f (cl): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// TclEventType: RUN_LAUNCH
+dismissDialog("Launch Runs"); // f (cl)
+// WARNING: HEventQueue.dispatchEvent() is taking  1260 ms.
+// TclEventType: RUN_MODIFY
+// by (cl):  Generate Bitstream : addNotify
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// Tcl Message: [Fri Aug 22 00:13:55 2025] Launched impl_1... Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // by (cl)
+// TclEventType: RUN_STATUS_CHANGE
+// [GUI Memory]: 194 MB (+4421kb) [01:27:28]
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// ah (cl): Bitstream Generation Failed: addNotify
+// Elapsed time: 108 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_LOG_WINDOW
+dismissDialog("Bitstream Generation Failed"); // ah (cl)
+// RDIResource.RDIViews_PROPERTIES: Source File Properties: close view
+// Elapsed time: 55 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cons.xdc", 1); // k (j, cl)
+selectCodeEditor("cons.xdc", 185, 19); // cl (w, cl)
+selectCodeEditor("cons.xdc", 157, 53); // cl (w, cl)
+selectCodeEditor("cons.xdc", 224, 70); // cl (w, cl)
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 33 seconds
+selectCodeEditor("cons.xdc", 224, 46); // cl (w, cl)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Program and Debug, Generate Bitstream]", 31, false); // u (O, cl)
+// Run Command: PAResourceCommand.PACommandNames_RUN_BITGEN
+// by (cl):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (cl): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// 'cx' command handler elapsed time: 3 seconds
+// TclEventType: RUN_LAUNCH
+dismissDialog("Launch Runs"); // f (cl)
+// by (cl):  Generate Bitstream : addNotify
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs impl_1 -to_step write_bitstream -jobs 2 
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Fri Aug 22 00:17:38 2025] Launched synth_1... Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log [Fri Aug 22 00:17:39 2025] Launched impl_1... Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log 
+dismissDialog("Generate Bitstream"); // by (cl)
+// TclEventType: RUN_STATUS_CHANGE
+selectCodeEditor("cons.xdc", 109, 20); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'c'); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'c'); // cl (w, cl)
+// Elapsed time: 21 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // k (j, cl)
+// Elapsed time: 10 seconds
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // h (Q, cl)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// D (cl): Settings: addNotify
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // h (Q, cl)
+// Elapsed time: 26 seconds
+setText(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // Y (a, D)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (D)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (D)
+dismissDialog("Settings"); // D (cl)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cons.xdc", 1); // k (j, cl)
+selectCodeEditor("cons.xdc", 141, 20); // cl (w, cl)
+selectCodeEditor("cons.xdc", 5, 10); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+typeControlKey(null, null, 'z');
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // k (j, cl)
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // h (Q, cl)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// D (cl): Settings: addNotify
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // h (Q, cl)
+setText(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, "Artix-7 AC701 Evaluation Platform (xc7a200tfbg676-2)"); // Y (a, D)
+selectMenuItem(RDIResourceCommand.RDICommands_COPY, "Copy"); // ah (an, Popup.HeavyWeightWindow)
+dismissDialog("Settings"); // D (cl)
+// [GUI Memory]: 208 MB (+3966kb) [01:32:36]
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "cons.xdc", 1); // k (j, cl)
+typeControlKey((HResource) null, "cons.xdc", 'v'); // cl (w, cl)
+selectCodeEditor("cons.xdc", 127, 15); // cl (w, cl)
+selectCodeEditor("cons.xdc", 127, 15); // cl (w, cl)
+selectCodeEditor("cons.xdc", 185, 29); // cl (w, cl)
+selectCodeEditor("cons.xdc", 206, 52); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'c'); // cl (w, cl)
+typeControlKey((HResource) null, "cons.xdc", 'c'); // cl (w, cl)
+selectCodeEditor("cons.xdc", 66, 30); // cl (w, cl)
+selectCodeEditor("cons.xdc", 116, 20); // cl (w, cl)
+// Elapsed time: 28 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "fft_8point_top.v", 2); // k (j, cl)
+// k (cl): Text Changed: addNotify
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B (k, cl)
+selectButton(RDIResource.ConfirmSaveTextEditsDialog_YES, "Yes"); // a (k)
+selectButton(RDIResource.ConfirmSaveTextEditsDialog_YES, "Yes"); // a (k)
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Text Changed"); // k (cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, impl_1, General Messages, [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.. ]", 2, false); // ah (O, cl)
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// ah (cl): Bitstream Generation Failed: addNotify
+// Elapsed time: 457 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_LOG_WINDOW
+dismissDialog("Bitstream Generation Failed"); // ah (cl)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'G14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:24]. ]", 2); // ah (O, cl)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:32]. ]", 102); // ah (O, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Write Bitstream, DRC, Implementation, Routing]", 133, true); // ah (O, cl) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, impl_1, General Messages, [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.. ]", 139, false); // ah (O, cl)
+typeControlKey(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, (String) null, 'a'); // ah (O, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, impl_1]", 137, true, false, false, false, true, false); // ah (O, cl) - Popup Trigger - Node
+selectMenu(PAResourceItoN.MsgTreePanel_MESSAGE_SEVERITY, "Message Severity"); // ae (K, cl)
+// Elapsed time: 42 seconds
+selectCodeEditor("fft_8point_top.v", 91, 25); // cl (w, cl)
+// Elapsed time: 16 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Write Bitstream, [Vivado 12-1345] Error(s) found during DRC. Bitgen not run.. ]", 136, false); // ah (O, cl)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Implementation, Design Initialization, [Common 17-69] Command failed: 'G14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:24]. , [Common 17-69] Command failed: 'D11' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:54]. ]", 16, false); // ah (O, cl)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc;-;;-;16;-;line;-;54;-;;-;16;-;"); // ah (O, cl)
+// Elapsed time: 112 seconds
+selectCodeEditor("cons.xdc", 260, 31); // cl (w, cl)
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // G (aH, cl)
+// Elapsed time: 52 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_NETLIST, "Netlist"); // az
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fft_8point_top (fft_8point_top.v)]", 1, true); // B (F, cl) - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, fft_8point_top (fft_8point_top.v)]", 1, true, false, false, false, true, false); // B (F, cl) - Popup Trigger - Node
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ae (an, Popup.HeavyWeightWindow)
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ae (an, Popup.HeavyWeightWindow)
+// Elapsed time: 25 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_TIMING, "Timing - Timing Summary - impl_1 (saved)"); // az
+// [GUI Memory]: 220 MB (+1876kb) [01:46:21]
+// Elapsed time: 18 seconds
+selectTree(PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, "[Root, Clock Summary]", 3, false); // a (O, cl)
+selectCodeEditor("cons.xdc", 235, 36); // cl (w, cl)
+// WARNING: HEventQueue.dispatchEvent() is taking  7400 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 232ms to process. Increasing delay to 2000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  6555043 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 6,212 MB. GUI used memory: 122 MB. Current time: 8/22/25, 2:23:51 AM CST
+// WARNING: HEventQueue.dispatchEvent() is taking  4578 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 6,212 MB. GUI used memory: 119 MB. Current time: 8/22/25, 2:53:47 AM CST
+// WARNING: HEventQueue.dispatchEvent() is taking  1067 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1272 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1282 ms.
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 322ms to process. Increasing delay to 2000 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1213 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  2103 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1074 ms.
+// HMemoryUtils.trashcanNow. Engine heap size: 6,212 MB. GUI used memory: 111 MB. Current time: 8/22/25, 3:23:49 AM CST
+// HMemoryUtils.trashcanNow. Engine heap size: 6,212 MB. GUI used memory: 111 MB. Current time: 8/22/25, 3:53:50 AM CST
+// WARNING: HEventQueue.dispatchEvent() is taking  1030 ms.

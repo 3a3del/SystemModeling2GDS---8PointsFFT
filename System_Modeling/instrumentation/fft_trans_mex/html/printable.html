@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<h1>Instrumentation Results for fft_trans_mex</h1>
+<h2>Summary</h2>
+<p>To re-create this report:</p>
+<pre>  showInstrumentationResults fft_trans_mex</pre>
+
+<p>MEX-function name:</p>
+<pre>fft_trans_mex</pre>
+<p>Timestamp:</p>
+<pre>Mon Aug 11 19:26:43 2025</pre>
+<p>To open this report from the MATLAB command line:</p>
+<pre> web('-browser','C:\Users\hp\Desktop\FFT\instrumentation\fft_trans_mex\html\printable.html')</pre>
+
+
+<h2>Function fft_trans </h2>
+
+<pre>
+function y = fft_trans(x_in,T)
+    % Input: x_in - 1x8 complex vector
+    % Output: y - 1x8 complex vector (FFT result)
+    x_in = cast(x_in, 'like', T.x);
+    
+    % STAGE 1: Bit-reversal and first butterfly operations
+    % Bit-reverse input ordering: [0,4,2,6,1,5,3,7]
+    x_stage1_in = cast([x_in(1), x_in(5), x_in(3), x_in(7), ...
+                        x_in(2), x_in(6), x_in(4), x_in(8)], 'like', T.x_stage1_in);
+    
+    % First stage butterflies (twiddle factor W^0 = 1)
+    x_stage1_out = cast(complex(zeros(1, 8)), 'like', T.x_stage1_out);
+    x_stage1_out(1) = cast(x_stage1_in(1) + x_stage1_in(2), 'like', T.x_stage1_out); % x0 + x4
+    x_stage1_out(2) = cast(x_stage1_in(1) - x_stage1_in(2), 'like', T.x_stage1_out); % x0 - x4
+    x_stage1_out(3) = cast(x_stage1_in(3) + x_stage1_in(4), 'like', T.x_stage1_out); % x2 + x6
+    x_stage1_out(4) = cast(x_stage1_in(3) - x_stage1_in(4), 'like', T.x_stage1_out); % x2 - x6
+    x_stage1_out(5) = cast(x_stage1_in(5) + x_stage1_in(6), 'like', T.x_stage1_out); % x1 + x5
+    x_stage1_out(6) = cast(x_stage1_in(5) - x_stage1_in(6), 'like', T.x_stage1_out); % x1 - x5
+    x_stage1_out(7) = cast(x_stage1_in(7) + x_stage1_in(8), 'like', T.x_stage1_out); % x3 + x7
+    x_stage1_out(8) = cast(x_stage1_in(7) - x_stage1_in(8), 'like', T.x_stage1_out); % x3 - x7
+    
+    % STAGE 2: Apply twiddle factors W^0, W^2 = -j
+    x_stage2_out = cast(complex(zeros(1, 8)), 'like', T.x_stage2_out);
+    x_stage2_out(1) = cast(x_stage1_out(1) + x_stage1_out(3), 'like', T.x_stage2_out); % W^0 = 1
+    x_stage2_out(2) = cast(x_stage1_out(2) + cast(x_stage1_out(4) * cast(-1j, 'like', T.x_stage2_out), 'like', T.x_stage2_out), 'like', T.x_stage2_out); % W^2 = -j
+    x_stage2_out(3) = cast(x_stage1_out(1) - x_stage1_out(3), 'like', T.x_stage2_out); % W^0 = 1
+    x_stage2_out(4) = cast(x_stage1_out(2) - cast(x_stage1_out(4) * cast(-1j, 'like', T.x_stage2_out), 'like', T.x_stage2_out), 'like', T.x_stage2_out); % W^2 = -j
+    x_stage2_out(5) = cast(x_stage1_out(5) + x_stage1_out(7), 'like', T.x_stage2_out); % W^0 = 1
+    x_stage2_out(6) = cast(x_stage1_out(6) + cast(x_stage1_out(8) * cast(-1j, 'like', T.x_stage2_out), 'like', T.x_stage2_out), 'like', T.x_stage2_out); % W^2 = -j
+    x_stage2_out(7) = cast(x_stage1_out(5) - x_stage1_out(7), 'like', T.x_stage2_out); % W^0 = 1
+    x_stage2_out(8) = cast(x_stage1_out(6) - cast(x_stage1_out(8) * cast(-1j, 'like', T.x_stage2_out), 'like', T.x_stage2_out), 'like', T.x_stage2_out); % W^2 = -j
+    
+    % Compute twiddle factors as doubles
+    W1d = exp(-1j * 2 * pi * 1 / 8);
+    W2d = exp(-1j * 2 * pi * 2 / 8);
+    W3d = exp(-1j * 2 * pi * 3 / 8);
+    
+    % Then cast to fixed-point
+    W1 = cast(W1d, 'like', T.W1);
+    W2 = cast(W2d, 'like', T.W2);
+    W3 = cast(W3d, 'like', T.W3);
+    
+    y = cast(complex(zeros(1, 8)), 'like', T.y);
+    y(1) = cast(x_stage2_out(1) + x_stage2_out(5), 'like', T.y); % W^0 = 1
+    y(2) = cast(x_stage2_out(2) + cast(x_stage2_out(6) * W1, 'like', T.y), 'like', T.y); % W^1
+    y(3) = cast(x_stage2_out(3) + cast(x_stage2_out(7) * W2, 'like', T.y), 'like', T.y); % W^2 = -j
+    y(4) = cast(x_stage2_out(4) + cast(x_stage2_out(8) * W3, 'like', T.y), 'like', T.y); % W^3
+    y(5) = cast(x_stage2_out(1) - x_stage2_out(5), 'like', T.y); % W^0 = 1
+    y(6) = cast(x_stage2_out(2) - cast(x_stage2_out(6) * W1, 'like', T.y), 'like', T.y); % W^1
+    y(7) = cast(x_stage2_out(3) - cast(x_stage2_out(7) * W2, 'like', T.y), 'like', T.y); % W^2 = -j
+    y(8) = cast(x_stage2_out(4) - cast(x_stage2_out(8) * W3, 'like', T.y), 'like', T.y); % W^3
+end
+</pre>
+<table style="border-collapse: collapse; border: solid;" border="1">
+<caption><b>Logged Variables for fft_trans</b></caption>
+<tr><th>Variable</th><th>Type</th><th>Size</th><th>Class</th><th>Complex</th><th>Signedness</th><th>WL</th><th>FL</th><th>Percent of<br>Current Range</th><th>Always<br>Whole Number</th><th>SimMin</th><th>SimMax</th></tr>
+<tr><td><code>W1</code></td><td><code>Local</code></td><td><code>1&nbsp;x&nbsp;1</code></td><td><code>embedded.fi</code></td><td><code>Yes</code></td><td><code>Signed</code></td><td><code>16</code></td><td><code>15</code></td><td><code>71</code></td><td><code>No</code></td><td><code>-0.70709228515625</code></td><td><code>0.70709228515625</code></td></tr>
+<tr><td><code>W1d</code></td><td><code>Local</code></td><td><code>1&nbsp;x&nbsp;1</code></td><td><code>double</code></td><td><code>Yes</code></td><td><code></code></td><td><code></code></td><td><code></code></td><td><code></code></td><td><code>No</code></td><td><code>-0.7071067811865475</code></td><td><code>0.7071067811865476</code></td></tr>
+<tr><td><code>W2</code></td><td><code>Local</code></td><td><code>1&nbsp;x&nbsp;1</code></td><td><code>embedded.fi</code></td><td><code>Yes</code></td><td><code>Signed</code></td><td><code>16</code></td><td><code>15</code></td><td><code><span style="background-color: yellow"><span style="color: black"><b>100</b></span></span></code></td><td><code><b>Yes</b></code></td><td><code>-1</code></td><td><code>0</code></td></tr>
+<tr><td><code>W2d</code></td><td><code>Local</code></td><td><code>1&nbsp;x&nbsp;1</code></td><td><code>double</code></td><td><code>Yes</code></td><td><code></code></td><td><code></code></td><td><code></code></td><td><code></code></td><td><code>No</code></td><td><code>-1</code></td><td><code>6.123233995736766e-17</code></td></tr>
+<tr><td><code>W3</code></td><td><code>Local</code></td><td><code>1&nbsp;x&nbsp;1</code></td><td><code>embedded.fi</code></td><td><code>Yes</code></td><td><code>Signed</code></td><td><code>16</code></td><td><code>15</code></td><td><code>71</code></td><td><code>No</code></td><td><code>-0.70709228515625</code></td><td><code>-0.70709228515625</code></td></tr>
+<tr><td><code>W3d</code></td><td><code>Local</code></td><td><code>1&nbsp;x&nbsp;1</code></td><td><code>double</code></td><td><code>Yes</code></td><td><code></code></td><td><code></code></td><td><code></code></td><td><code></code></td><td><code>No</code></td><td><code>-0.7071067811865476</code></td><td><code>-0.7071067811865475</code></td></tr>
+<tr><td><code>x_in</code></td><td><code>Input</code></td><td><code>1&nbsp;x&nbsp;8</code></td><td><code>embedded.fi</code></td><td><code>Yes</code></td><td><code>Signed</code></td><td><code>16</code></td><td><code>12</code></td><td><code>54</code></td><td><code>No</code></td><td><code>-4.19189453125</code></td><td><code>4.253173828125</code></td></tr>
+<tr><td><code>x_stage1_in</code></td><td><code>Local</code></td><td><code>1&nbsp;x&nbsp;8</code></td><td><code>embedded.fi</code></td><td><code>Yes</code></td><td><code>Signed</code></td><td><code>16</code></td><td><code>12</code></td><td><code>54</code></td><td><code>No</code></td><td><code>-4.19189453125</code></td><td><code>4.253173828125</code></td></tr>
+<tr><td><code>x_stage1_out</code></td><td><code>Local</code></td><td><code>1&nbsp;x&nbsp;8</code></td><td><code>embedded.fi</code></td><td><code>Yes</code></td><td><code>Signed</code></td><td><code>16</code></td><td><code>12</code></td><td><code>92</code></td><td><code>No</code></td><td><code>-7.324462890625</code></td><td><code>6.146240234375</code></td></tr>
+<tr><td><code>x_stage2_out</code></td><td><code>Local</code></td><td><code>1&nbsp;x&nbsp;8</code></td><td><code>embedded.fi</code></td><td><code>Yes</code></td><td><code>Signed</code></td><td><code>16</code></td><td><code>11</code></td><td><code>55</code></td><td><code>No</code></td><td><code>-8.7578125</code></td><td><code>8.3359375</code></td></tr>
+<tr><td><code>y</code></td><td><code>Output</code></td><td><code>1&nbsp;x&nbsp;8</code></td><td><code>embedded.fi</code></td><td><code>Yes</code></td><td><code>Signed</code></td><td><code>16</code></td><td><code>11</code></td><td><code>84</code></td><td><code>No</code></td><td><code>-13.3740234375</code></td><td><code>11.80126953125</code></td></tr>
+</table>
+</html>

@@ -1,0 +1,1725 @@
+QuestaSim-64 vcover 10.6c Coverage Utility 2017.07 Jul 26 2017
+Start time: 00:42:30 on Aug 17,2025
+vcover report -details my_cov.ucdb 
+Coverage Report by file with details
+
+=================================================================================
+=== File: fft_8point_top.v
+=================================================================================
+Statement Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Stmts                           16        16         0     100.0
+
+================================Statement Details================================
+
+Statement Coverage for file fft_8point_top.v --
+
+    1                                                module fft_8point_top #(
+    2                                                  parameter integer WIDTH = 16,
+    3                                                  parameter integer Q_inputs= 12,
+    4                                                  parameter integer Q_outputs= 11
+    5                                                )(
+    6                                                  input  wire                   clk,
+    7                                                  input  wire                   rst_n,
+    8                                                  input  wire                   start,        // Start FFT computation
+    9                                                  
+    10                                                 // Input samples (time domain)
+    11                                                 input  wire signed [WIDTH-1:0] x_in_0_real,
+    12                                                 input  wire signed [WIDTH-1:0] x_in_0_imag,
+    13                                                 input  wire signed [WIDTH-1:0] x_in_1_real,
+    14                                                 input  wire signed [WIDTH-1:0] x_in_1_imag,
+    15                                                 input  wire signed [WIDTH-1:0] x_in_2_real,
+    16                                                 input  wire signed [WIDTH-1:0] x_in_2_imag,
+    17                                                 input  wire signed [WIDTH-1:0] x_in_3_real,
+    18                                                 input  wire signed [WIDTH-1:0] x_in_3_imag,
+    19                                                 input  wire signed [WIDTH-1:0] x_in_4_real,
+    20                                                 input  wire signed [WIDTH-1:0] x_in_4_imag,
+    21                                                 input  wire signed [WIDTH-1:0] x_in_5_real,
+    22                                                 input  wire signed [WIDTH-1:0] x_in_5_imag,
+    23                                                 input  wire signed [WIDTH-1:0] x_in_6_real,
+    24                                                 input  wire signed [WIDTH-1:0] x_in_6_imag,
+    25                                                 input  wire signed [WIDTH-1:0] x_in_7_real,
+    26                                                 input  wire signed [WIDTH-1:0] x_in_7_imag,
+    27                                               
+    28                                                 // Output samples (frequency domain)
+    29                                                 output wire signed [WIDTH-1:0] x_out_0_real,
+    30                                                 output wire signed [WIDTH-1:0] x_out_0_imag,
+    31                                                 output wire signed [WIDTH-1:0] x_out_1_real,
+    32                                                 output wire signed [WIDTH-1:0] x_out_1_imag,
+    33                                                 output wire signed [WIDTH-1:0] x_out_2_real,
+    34                                                 output wire signed [WIDTH-1:0] x_out_2_imag,
+    35                                                 output wire signed [WIDTH-1:0] x_out_3_real,
+    36                                                 output wire signed [WIDTH-1:0] x_out_3_imag,
+    37                                                 output wire signed [WIDTH-1:0] x_out_4_real,
+    38                                                 output wire signed [WIDTH-1:0] x_out_4_imag,
+    39                                                 output wire signed [WIDTH-1:0] x_out_5_real,
+    40                                                 output wire signed [WIDTH-1:0] x_out_5_imag,
+    41                                                 output wire signed [WIDTH-1:0] x_out_6_real,
+    42                                                 output wire signed [WIDTH-1:0] x_out_6_imag,
+    43                                                 output wire signed [WIDTH-1:0] x_out_7_real,
+    44                                                 output wire signed [WIDTH-1:0] x_out_7_imag,
+    45                                                 
+    46                                                 // Control outputs
+    47                                                 output reg                    valid_out,    // Output data is valid
+    48                                                 output reg                    done          // FFT computation complete
+    49                                               );
+    50                                               
+    51                                                 // Inter-stage connections
+    52                                                 // First Stage to Second Stage
+    53                                                 wire signed [WIDTH-1:0] stage1_to_stage2_0_real, stage1_to_stage2_0_imag;
+    54                                                 wire signed [WIDTH-1:0] stage1_to_stage2_1_real, stage1_to_stage2_1_imag;
+    55                                                 wire signed [WIDTH-1:0] stage1_to_stage2_2_real, stage1_to_stage2_2_imag;
+    56                                                 wire signed [WIDTH-1:0] stage1_to_stage2_3_real, stage1_to_stage2_3_imag;
+    57                                                 wire signed [WIDTH-1:0] stage1_to_stage2_4_real, stage1_to_stage2_4_imag;
+    58                                                 wire signed [WIDTH-1:0] stage1_to_stage2_5_real, stage1_to_stage2_5_imag;
+    59                                                 wire signed [WIDTH-1:0] stage1_to_stage2_6_real, stage1_to_stage2_6_imag;
+    60                                                 wire signed [WIDTH-1:0] stage1_to_stage2_7_real, stage1_to_stage2_7_imag;
+    61                                               
+    62                                                 // Second Stage to Third Stage
+    63                                                 wire signed [WIDTH-1:0] stage2_to_stage3_0_real, stage2_to_stage3_0_imag;
+    64                                                 wire signed [WIDTH-1:0] stage2_to_stage3_1_real, stage2_to_stage3_1_imag;
+    65                                                 wire signed [WIDTH-1:0] stage2_to_stage3_2_real, stage2_to_stage3_2_imag;
+    66                                                 wire signed [WIDTH-1:0] stage2_to_stage3_3_real, stage2_to_stage3_3_imag;
+    67                                                 wire signed [WIDTH-1:0] stage2_to_stage3_4_real, stage2_to_stage3_4_imag;
+    68                                                 wire signed [WIDTH-1:0] stage2_to_stage3_5_real, stage2_to_stage3_5_imag;
+    69                                                 wire signed [WIDTH-1:0] stage2_to_stage3_6_real, stage2_to_stage3_6_imag;
+    70                                                 wire signed [WIDTH-1:0] stage2_to_stage3_7_real, stage2_to_stage3_7_imag;
+    71                                               
+    72                                                 // Pipeline control registers
+    73                                                 reg [2:0] pipeline_counter;
+    74                                                 reg computation_active;
+    75                                               
+    76                                                 // First Stage: Bit-reversal and first butterfly operations
+    77                                                 fft_FirstStage #(.WIDTH(WIDTH) , .Q(Q_inputs)) stage1 ( 
+    78                                                   .clk(clk),
+    79                                                   .rst_n(rst_n),
+    80                                                   .x_in_0_real(x_in_0_real), .x_in_0_imag(x_in_0_imag),
+    81                                                   .x_in_1_real(x_in_1_real), .x_in_1_imag(x_in_1_imag),
+    82                                                   .x_in_2_real(x_in_2_real), .x_in_2_imag(x_in_2_imag),
+    83                                                   .x_in_3_real(x_in_3_real), .x_in_3_imag(x_in_3_imag),
+    84                                                   .x_in_4_real(x_in_4_real), .x_in_4_imag(x_in_4_imag),
+    85                                                   .x_in_5_real(x_in_5_real), .x_in_5_imag(x_in_5_imag),
+    86                                                   .x_in_6_real(x_in_6_real), .x_in_6_imag(x_in_6_imag),
+    87                                                   .x_in_7_real(x_in_7_real), .x_in_7_imag(x_in_7_imag),
+    88                                                   .x_out_0_real(stage1_to_stage2_0_real), .x_out_0_imag(stage1_to_stage2_0_imag),
+    89                                                   .x_out_1_real(stage1_to_stage2_1_real), .x_out_1_imag(stage1_to_stage2_1_imag),
+    90                                                   .x_out_2_real(stage1_to_stage2_2_real), .x_out_2_imag(stage1_to_stage2_2_imag),
+    91                                                   .x_out_3_real(stage1_to_stage2_3_real), .x_out_3_imag(stage1_to_stage2_3_imag),
+    92                                                   .x_out_4_real(stage1_to_stage2_4_real), .x_out_4_imag(stage1_to_stage2_4_imag),
+    93                                                   .x_out_5_real(stage1_to_stage2_5_real), .x_out_5_imag(stage1_to_stage2_5_imag),
+    94                                                   .x_out_6_real(stage1_to_stage2_6_real), .x_out_6_imag(stage1_to_stage2_6_imag),
+    95                                                   .x_out_7_real(stage1_to_stage2_7_real), .x_out_7_imag(stage1_to_stage2_7_imag)
+    96                                                 );
+    97                                               
+    98                                                 // Second Stage: Second butterfly operations with twiddle factors
+    99                                                 fft_SecondStage #(.WIDTH(WIDTH) , .Q_IN(Q_inputs) , .Q_OUT(Q_outputs) ) stage2 (
+    100                                                  .clk(clk),
+    101                                                  .rst_n(rst_n),
+    102                                                  .x_in_0_real(stage1_to_stage2_0_real), .x_in_0_imag(stage1_to_stage2_0_imag),
+    103                                                  .x_in_1_real(stage1_to_stage2_1_real), .x_in_1_imag(stage1_to_stage2_1_imag),
+    104                                                  .x_in_2_real(stage1_to_stage2_2_real), .x_in_2_imag(stage1_to_stage2_2_imag),
+    105                                                  .x_in_3_real(stage1_to_stage2_3_real), .x_in_3_imag(stage1_to_stage2_3_imag),
+    106                                                  .x_in_4_real(stage1_to_stage2_4_real), .x_in_4_imag(stage1_to_stage2_4_imag),
+    107                                                  .x_in_5_real(stage1_to_stage2_5_real), .x_in_5_imag(stage1_to_stage2_5_imag),
+    108                                                  .x_in_6_real(stage1_to_stage2_6_real), .x_in_6_imag(stage1_to_stage2_6_imag),
+    109                                                  .x_in_7_real(stage1_to_stage2_7_real), .x_in_7_imag(stage1_to_stage2_7_imag),
+    110                                                  .x_out_0_real(stage2_to_stage3_0_real), .x_out_0_imag(stage2_to_stage3_0_imag),
+    111                                                  .x_out_1_real(stage2_to_stage3_1_real), .x_out_1_imag(stage2_to_stage3_1_imag),
+    112                                                  .x_out_2_real(stage2_to_stage3_2_real), .x_out_2_imag(stage2_to_stage3_2_imag),
+    113                                                  .x_out_3_real(stage2_to_stage3_3_real), .x_out_3_imag(stage2_to_stage3_3_imag),
+    114                                                  .x_out_4_real(stage2_to_stage3_4_real), .x_out_4_imag(stage2_to_stage3_4_imag),
+    115                                                  .x_out_5_real(stage2_to_stage3_5_real), .x_out_5_imag(stage2_to_stage3_5_imag),
+    116                                                  .x_out_6_real(stage2_to_stage3_6_real), .x_out_6_imag(stage2_to_stage3_6_imag),
+    117                                                  .x_out_7_real(stage2_to_stage3_7_real), .x_out_7_imag(stage2_to_stage3_7_imag)
+    118                                                );
+    119                                              
+    120                                                // Third Stage: Final butterfly operations with twiddle factors
+    121                                                fft_ThirdStage #(.WIDTH(WIDTH) , .Q(Q_outputs)) stage3 (
+    122                                                  .clk(clk),
+    123                                                  .rst_n(rst_n),
+    124                                                  .x_in_0_real(stage2_to_stage3_0_real), .x_in_0_imag(stage2_to_stage3_0_imag),
+    125                                                  .x_in_1_real(stage2_to_stage3_1_real), .x_in_1_imag(stage2_to_stage3_1_imag),
+    126                                                  .x_in_2_real(stage2_to_stage3_2_real), .x_in_2_imag(stage2_to_stage3_2_imag),
+    127                                                  .x_in_3_real(stage2_to_stage3_3_real), .x_in_3_imag(stage2_to_stage3_3_imag),
+    128                                                  .x_in_4_real(stage2_to_stage3_4_real), .x_in_4_imag(stage2_to_stage3_4_imag),
+    129                                                  .x_in_5_real(stage2_to_stage3_5_real), .x_in_5_imag(stage2_to_stage3_5_imag),
+    130                                                  .x_in_6_real(stage2_to_stage3_6_real), .x_in_6_imag(stage2_to_stage3_6_imag),
+    131                                                  .x_in_7_real(stage2_to_stage3_7_real), .x_in_7_imag(stage2_to_stage3_7_imag),
+    132                                                  .x_out_0_real(x_out_0_real), .x_out_0_imag(x_out_0_imag),
+    133                                                  .x_out_1_real(x_out_1_real), .x_out_1_imag(x_out_1_imag),
+    134                                                  .x_out_2_real(x_out_2_real), .x_out_2_imag(x_out_2_imag),
+    135                                                  .x_out_3_real(x_out_3_real), .x_out_3_imag(x_out_3_imag),
+    136                                                  .x_out_4_real(x_out_4_real), .x_out_4_imag(x_out_4_imag),
+    137                                                  .x_out_5_real(x_out_5_real), .x_out_5_imag(x_out_5_imag),
+    138                                                  .x_out_6_real(x_out_6_real), .x_out_6_imag(x_out_6_imag),
+    139                                                  .x_out_7_real(x_out_7_real), .x_out_7_imag(x_out_7_imag)
+    140                                                );
+    141                                              
+    142                                                // Pipeline control logic
+    143             1                        303       always @(posedge clk or negedge rst_n) begin
+    144                                                  if (!rst_n) begin
+    145             1                          2           pipeline_counter <= 3'b000;
+    146             1                          2           computation_active <= 1'b0;
+    147             1                          2           valid_out <= 1'b0;
+    148             1                          2           done <= 1'b0;
+    149                                                  end else begin
+    150                                                    if (start && !computation_active) begin
+    151                                                      // Start new FFT computation
+    152             1                         50             computation_active <= 1'b1;
+    153             1                         50             pipeline_counter <= 3'b001;
+    154             1                         50             valid_out <= 1'b0;
+    155             1                         50             done <= 1'b0;
+    156                                                    end else if (computation_active) begin
+    157                                                      // Count pipeline stages
+    158                                                      if (pipeline_counter < 3'b100) begin
+    159             1                        150               pipeline_counter <= pipeline_counter + 1'b1;
+    160                                                      end else begin
+    161                                                        // Pipeline complete
+    162             1                         50               valid_out <= 1'b1;
+    163             1                         50               done <= 1'b1;
+    164             1                         50               computation_active <= 1'b0;
+    165             1                         50               pipeline_counter <= 3'b000;
+    166                                                      end
+    167                                                    end else begin
+    168                                                      // Clear done signal after one cycle
+    169             1                         51             done <= 1'b0;
+    170                                                      if (!start) begin
+    171             1                         51               valid_out <= 1'b0;
+    172                                                      end
+    173                                                    end
+    174                                                  end
+    175                                                end
+    176                                              
+    177                                              endmodule
+
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                         9         8         1      88.8
+
+================================Branch Details================================
+
+Branch Coverage for file fft_8point_top.v --
+
+------------------------------------IF Branch------------------------------------
+    144                                      303     Count coming in to IF
+    144             1                          2         if (!rst_n) begin
+    149             1                        301         end else begin
+Branch totals: 2 hits of 2 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    150                                      301     Count coming in to IF
+    150             1                         50           if (start && !computation_active) begin
+    156             1                        200           end else if (computation_active) begin
+    167             1                         51           end else begin
+Branch totals: 3 hits of 3 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    158                                      200     Count coming in to IF
+    158             1                        150             if (pipeline_counter < 3'b100) begin
+    160             1                         50             end else begin
+Branch totals: 2 hits of 2 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    170                                       51     Count coming in to IF
+    170             1                         51             if (!start) begin
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.0%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              2         1         1      50.0
+
+================================Condition Details================================
+
+Condition Coverage for file fft_8point_top.v --
+
+----------------Focused Condition View-------------------
+Line       150 Item    1  (start && ~computation_active)
+Condition totals: 1 of 2 input terms covered = 50.0%
+
+          Input Term   Covered  Reason for no coverage   Hint
+         -----------  --------  -----------------------  --------------
+               start         Y
+  computation_active         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  start_0               -                             
+  Row   2:          1  start_1               ~computation_active           
+  Row   3:          1  computation_active_0  start                         
+  Row   4:    ***0***  computation_active_1  start                         
+
+
+Expression Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Expression Terms             0         0         0     100.0
+FSM Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FSMs                                                       100.0
+        States                       0         0         0     100.0
+        Transitions                  0         0         0     100.0
+Toggle Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Toggle Bins                   2066      2065         1      99.9
+
+================================Toggle Details================================
+
+Toggle Coverage for File fft_8point_top.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+          7                                  rst_n           0           1       50.00 
+
+Total Node Count     =       1033 
+Toggled Node Count   =       1032 
+Untoggled Node Count =          1 
+
+Toggle Coverage      =       99.9% (2065 of 2066 bins)
+
+=================================================================================
+=== File: fft_8point_top_MatlabVerification.sv
+=================================================================================
+Statement Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Stmts                          166       148        18      89.1
+
+================================Statement Details================================
+
+Statement Coverage for file fft_8point_top_MatlabVerification.sv --
+
+    1                                                `timescale 1ns / 1ps
+    2                                                
+    3                                                module fft_8point_top_MatlabVerification();
+    4                                                
+    5                                                    // Parameters
+    6                                                    parameter integer WIDTH = 16;
+    7                                                    parameter integer Q_inputs = 12;
+    8                                                    parameter integer Q_outputs = 11;
+    9                                                    parameter real TOLERANCE = 0.1; // Tolerance for floating point comparison
+    10                                                   
+    11                                                   // Clock and reset
+    12                                                   reg clk;
+    13                                                   reg rst_n;
+    14                                                   reg start;
+    15                                                   
+    16                                                   // Input signals (time domain)
+    17                                                   reg signed [WIDTH-1:0] x_in_0_real, x_in_0_imag;
+    18                                                   reg signed [WIDTH-1:0] x_in_1_real, x_in_1_imag;
+    19                                                   reg signed [WIDTH-1:0] x_in_2_real, x_in_2_imag;
+    20                                                   reg signed [WIDTH-1:0] x_in_3_real, x_in_3_imag;
+    21                                                   reg signed [WIDTH-1:0] x_in_4_real, x_in_4_imag;
+    22                                                   reg signed [WIDTH-1:0] x_in_5_real, x_in_5_imag;
+    23                                                   reg signed [WIDTH-1:0] x_in_6_real, x_in_6_imag;
+    24                                                   reg signed [WIDTH-1:0] x_in_7_real, x_in_7_imag;
+    25                                                   
+    26                                                   // Output signals (frequency domain)
+    27                                                   wire signed [WIDTH-1:0] x_out_0_real, x_out_0_imag;
+    28                                                   wire signed [WIDTH-1:0] x_out_1_real, x_out_1_imag;
+    29                                                   wire signed [WIDTH-1:0] x_out_2_real, x_out_2_imag;
+    30                                                   wire signed [WIDTH-1:0] x_out_3_real, x_out_3_imag;
+    31                                                   wire signed [WIDTH-1:0] x_out_4_real, x_out_4_imag;
+    32                                                   wire signed [WIDTH-1:0] x_out_5_real, x_out_5_imag;
+    33                                                   wire signed [WIDTH-1:0] x_out_6_real, x_out_6_imag;
+    34                                                   wire signed [WIDTH-1:0] x_out_7_real, x_out_7_imag;
+    35                                                   
+    36                                                   // Control signals
+    37                                                   wire valid_out;
+    38                                                   wire done;
+    39                                                   
+    40                                                   // Test variables
+    41                                                   real input_test_cases [0:49][0:15]; // 50 test cases, 8 complex numbers (16 real values)
+    42                                                   real expected_outputs [0:49][0:15];  // Expected outputs
+    43                                                   real actual_outputs [0:15];          // Actual outputs converted to real
+    44                                                   
+    45                                                   integer test_case;
+    46                                                   integer errors;
+    47                                                   integer total_tests;
+    48                                                   
+    49                                                   // File handles
+    50                                                   integer input_file, output_file;
+    51                                                   
+    52                                                   // DUT instantiation
+    53                                                   fft_8point_top #(
+    54                                                       .WIDTH(WIDTH),
+    55                                                       .Q_inputs(Q_inputs),
+    56                                                       .Q_outputs(Q_outputs)
+    57                                                   ) dut (
+    58                                                       .clk(clk),
+    59                                                       .rst_n(rst_n),
+    60                                                       .start(start),
+    61                                                       .x_in_0_real(x_in_0_real), .x_in_0_imag(x_in_0_imag),
+    62                                                       .x_in_1_real(x_in_1_real), .x_in_1_imag(x_in_1_imag),
+    63                                                       .x_in_2_real(x_in_2_real), .x_in_2_imag(x_in_2_imag),
+    64                                                       .x_in_3_real(x_in_3_real), .x_in_3_imag(x_in_3_imag),
+    65                                                       .x_in_4_real(x_in_4_real), .x_in_4_imag(x_in_4_imag),
+    66                                                       .x_in_5_real(x_in_5_real), .x_in_5_imag(x_in_5_imag),
+    67                                                       .x_in_6_real(x_in_6_real), .x_in_6_imag(x_in_6_imag),
+    68                                                       .x_in_7_real(x_in_7_real), .x_in_7_imag(x_in_7_imag),
+    69                                                       .x_out_0_real(x_out_0_real), .x_out_0_imag(x_out_0_imag),
+    70                                                       .x_out_1_real(x_out_1_real), .x_out_1_imag(x_out_1_imag),
+    71                                                       .x_out_2_real(x_out_2_real), .x_out_2_imag(x_out_2_imag),
+    72                                                       .x_out_3_real(x_out_3_real), .x_out_3_imag(x_out_3_imag),
+    73                                                       .x_out_4_real(x_out_4_real), .x_out_4_imag(x_out_4_imag),
+    74                                                       .x_out_5_real(x_out_5_real), .x_out_5_imag(x_out_5_imag),
+    75                                                       .x_out_6_real(x_out_6_real), .x_out_6_imag(x_out_6_imag),
+    76                                                       .x_out_7_real(x_out_7_real), .x_out_7_imag(x_out_7_imag),
+    77                                                       .valid_out(valid_out),
+    78                                                       .done(done)
+    79                                                   );
+    80                                                   
+    81                                                   // Clock generation
+    82                                                   initial begin
+    83              1                          1             clk = 0;
+    84              1                          1             forever #5 clk = ~clk; // 100MHz clock
+    84              2                       1109     
+    84              3                       1108     
+    85                                                   end
+    86                                                   
+    87                                                   // Function to convert real number to fixed point
+    88                                                   function signed [WIDTH-1:0] real_to_fixed;
+    89                                                       input real value;
+    90                                                       input integer q_format;
+    91                                                       begin
+    92              1                        800                 real_to_fixed = value * (2.0 ** q_format);
+    93                                                       end
+    94                                                   endfunction
+    95                                                   
+    96                                                   // Function to convert fixed point to real
+    97                                                   function real fixed_to_real;
+    98                                                       input signed [WIDTH-1:0] value;
+    99                                                       input integer q_format;
+    100                                                      begin
+    101             1                        800                 fixed_to_real = $itor(value) / (2.0 ** q_format);
+    102                                                      end
+    103                                                  endfunction
+    104                                                  
+    105                                                  // Function to parse complex number string
+    106                                                  function automatic integer parse_complex;
+    107                                                      input string complex_str;
+    108                                                      output real real_part;
+    109                                                      output real imag_part;
+    110                                                      integer plus_pos, j_pos, len;
+    111                                                      string real_str, imag_str;
+    112                                                      begin
+    113             1                        800                 len = complex_str.len();
+    114                                                          
+    115                                                          // Find the position of 'j' at the end
+    116             1                        800                 j_pos = len - 1;
+    117                                                          
+    118                                                          // Find the position of '+' or '-' that separates real and imaginary parts
+    119             1                        800                 plus_pos = -1;
+    120             1                        800                 for (integer i = 1; i < j_pos; i++) begin
+    120             2                      13691     
+    121                                                              if (complex_str[i] == "+" || complex_str[i] == "-") begin
+    122             1                       1200                         plus_pos = i;
+    123                                                              end
+    124                                                          end
+    125                                                          
+    126                                                          if (plus_pos > 0) begin
+    127             1                        800                     real_str = complex_str.substr(0, plus_pos-1);
+    128             1                        800                     imag_str = complex_str.substr(plus_pos, j_pos-1);
+    129             1                        800                     real_part = real_str.atoreal();
+    130             1                        800                     imag_part = imag_str.atoreal();
+    131                                                          end else begin
+    132             1                    ***0***                     real_part = 0.0;
+    133             1                    ***0***                     imag_part = 0.0;
+    134                                                          end
+    135                                                          
+    136             1                        800                 parse_complex = 1;
+    137                                                      end
+    138                                                  endfunction
+    139                                                  
+    140                                                  // Task to load test cases from file
+    141                                                  task load_test_cases;
+    142                                                      string line;
+    143                                                      string complex_nums[8];
+    144                                                      real real_part, imag_part;
+    145                                                      integer i, j, comma_pos, start_pos;
+    146                                                      begin
+    147             1                          1                 input_file = $fopen("seed1_test_cases.txt", "r");
+    148                                                          if (input_file == 0) begin
+    149             1                    ***0***                     $display("ERROR: Could not open seed1_test_cases.txt");
+    150             1                    ***0***                     $finish;
+    151                                                          end
+    152                                                          
+    153             1                          1                 for (i = 0; i < 50; i++) begin
+    153             2                         50     
+    154                                                              if ($fgets(line, input_file)) begin
+    155                                                                  // Parse the line to extract 8 complex numbers
+    156             1                         50                         start_pos = 0;
+    157             1                         50                         for (j = 0; j < 8; j++) begin
+    157             2                        400     
+    158             1                        400                             comma_pos = -1;
+    159                                                                      // Find next comma or end of line
+    160             1                        400                             for (integer k = start_pos; k < line.len(); k++) begin
+    160             2                       7588     
+    161                                                                          if (line[k] == "," || k == line.len()-1) begin
+    162             1                        400                                     comma_pos = k;
+    163             1                        400                                     break;
+    164                                                                          end
+    165                                                                      end
+    166                                                                      
+    167                                                                      if (comma_pos > start_pos) begin
+    168                                                                          if (j == 7 && comma_pos == line.len()-1) begin
+    169             1                         50                                     complex_nums[j] = line.substr(start_pos, comma_pos);
+    170                                                                          end else begin
+    171             1                        350                                     complex_nums[j] = line.substr(start_pos, comma_pos-1);
+    172                                                                          end
+    173                                                                          
+    174                                                                          // Parse complex number
+    175             1                        400                                 parse_complex(complex_nums[j], real_part, imag_part);
+    176             1                        400                                 input_test_cases[i][j*2] = real_part;
+    177             1                        400                                 input_test_cases[i][j*2+1] = imag_part;
+    178                                                                          
+    179             1                        400                                 start_pos = comma_pos + 2; // Skip comma and space
+    180                                                                      end
+    181                                                                  end
+    182                                                              end
+    183                                                          end
+    184             1                          1                 $fclose(input_file);
+    185             1                          1                 $display("Loaded 50 input test cases");
+    186                                                      end
+    187                                                  endtask
+    188                                                  
+    189                                                  // Task to load expected outputs
+    190                                                  task load_expected_outputs;
+    191                                                      string line;
+    192                                                      string complex_nums[8];
+    193                                                      real real_part, imag_part;
+    194                                                      integer i, j, comma_pos, start_pos;
+    195                                                      begin
+    196             1                          1                 output_file = $fopen("seed1_test_outputs.txt", "r");
+    197                                                          if (output_file == 0) begin
+    198             1                    ***0***                     $display("ERROR: Could not open seed1_test_outputs.txt");
+    199             1                    ***0***                     $finish;
+    200                                                          end
+    201                                                          
+    202             1                          1                 for (i = 0; i < 50; i++) begin
+    202             2                         50     
+    203                                                              if ($fgets(line, output_file)) begin
+    204                                                                  // Parse the line to extract 8 complex numbers
+    205             1                         50                         start_pos = 0;
+    206             1                         50                         for (j = 0; j < 8; j++) begin
+    206             2                        400     
+    207             1                        400                             comma_pos = -1;
+    208                                                                      // Find next comma or end of line
+    209             1                        400                             for (integer k = start_pos; k < line.len(); k++) begin
+    209             2                       7603     
+    210                                                                          if (line[k] == "," || k == line.len()-1) begin
+    211             1                        400                                     comma_pos = k;
+    212             1                        400                                     break;
+    213                                                                          end
+    214                                                                      end
+    215                                                                      
+    216                                                                      if (comma_pos > start_pos) begin
+    217                                                                          if (j == 7 && comma_pos == line.len()-1) begin
+    218             1                         50                                     complex_nums[j] = line.substr(start_pos, comma_pos);
+    219                                                                          end else begin
+    220             1                        350                                     complex_nums[j] = line.substr(start_pos, comma_pos-1);
+    221                                                                          end
+    222                                                                          
+    223                                                                          // Parse complex number
+    224             1                        400                                 parse_complex(complex_nums[j], real_part, imag_part);
+    225             1                        400                                 expected_outputs[i][j*2] = real_part;
+    226             1                        400                                 expected_outputs[i][j*2+1] = imag_part;
+    227                                                                          
+    228             1                        400                                 start_pos = comma_pos + 2; // Skip comma and space
+    229                                                                      end
+    230                                                                  end
+    231                                                              end
+    232                                                          end
+    233             1                          1                 $fclose(output_file);
+    234             1                          1                 $display("Loaded 50 expected output cases");
+    235                                                      end
+    236                                                  endtask
+    237                                                  
+    238                                                  // Task to apply test case
+    239                                                  task apply_test_case;
+    240                                                      input integer tc;
+    241                                                      begin
+    242                                                          // Convert real inputs to fixed point and apply to DUT
+    243             1                         50                 x_in_0_real = real_to_fixed(input_test_cases[tc][0], Q_inputs);
+    244             1                         50                 x_in_0_imag = real_to_fixed(input_test_cases[tc][1], Q_inputs);
+    245             1                         50                 x_in_1_real = real_to_fixed(input_test_cases[tc][2], Q_inputs);
+    246             1                         50                 x_in_1_imag = real_to_fixed(input_test_cases[tc][3], Q_inputs);
+    247             1                         50                 x_in_2_real = real_to_fixed(input_test_cases[tc][4], Q_inputs);
+    248             1                         50                 x_in_2_imag = real_to_fixed(input_test_cases[tc][5], Q_inputs);
+    249             1                         50                 x_in_3_real = real_to_fixed(input_test_cases[tc][6], Q_inputs);
+    250             1                         50                 x_in_3_imag = real_to_fixed(input_test_cases[tc][7], Q_inputs);
+    251             1                         50                 x_in_4_real = real_to_fixed(input_test_cases[tc][8], Q_inputs);
+    252             1                         50                 x_in_4_imag = real_to_fixed(input_test_cases[tc][9], Q_inputs);
+    253             1                         50                 x_in_5_real = real_to_fixed(input_test_cases[tc][10], Q_inputs);
+    254             1                         50                 x_in_5_imag = real_to_fixed(input_test_cases[tc][11], Q_inputs);
+    255             1                         50                 x_in_6_real = real_to_fixed(input_test_cases[tc][12], Q_inputs);
+    256             1                         50                 x_in_6_imag = real_to_fixed(input_test_cases[tc][13], Q_inputs);
+    257             1                         50                 x_in_7_real = real_to_fixed(input_test_cases[tc][14], Q_inputs);
+    258             1                         50                 x_in_7_imag = real_to_fixed(input_test_cases[tc][15], Q_inputs);
+    259                                                          
+    260             1                         50                 $display("Applied test case %0d inputs", tc);
+    261                                                      end
+    262                                                  endtask
+    263                                                  
+    264                                                 task check_outputs;
+    265                                                  input integer tc;
+    266                                                  integer i;
+    267                                                  real error;
+    268                                                  integer case_errors;
+    269                                                  begin
+    270             1                         50             case_errors = 0;
+    271                                              
+    272                                                      // Convert fixed point outputs to real
+    273             1                         50             actual_outputs[0]  = fixed_to_real(x_out_0_real, Q_outputs);
+    274             1                         50             actual_outputs[1]  = fixed_to_real(x_out_0_imag, Q_outputs);
+    275             1                         50             actual_outputs[2]  = fixed_to_real(x_out_1_real, Q_outputs);
+    276             1                         50             actual_outputs[3]  = fixed_to_real(x_out_1_imag, Q_outputs);
+    277             1                         50             actual_outputs[4]  = fixed_to_real(x_out_2_real, Q_outputs);
+    278             1                         50             actual_outputs[5]  = fixed_to_real(x_out_2_imag, Q_outputs);
+    279             1                         50             actual_outputs[6]  = fixed_to_real(x_out_3_real, Q_outputs);
+    280             1                         50             actual_outputs[7]  = fixed_to_real(x_out_3_imag, Q_outputs);
+    281             1                         50             actual_outputs[8]  = fixed_to_real(x_out_4_real, Q_outputs);
+    282             1                         50             actual_outputs[9]  = fixed_to_real(x_out_4_imag, Q_outputs);
+    283             1                         50             actual_outputs[10] = fixed_to_real(x_out_5_real, Q_outputs);
+    284             1                         50             actual_outputs[11] = fixed_to_real(x_out_5_imag, Q_outputs);
+    285             1                         50             actual_outputs[12] = fixed_to_real(x_out_6_real, Q_outputs);
+    286             1                         50             actual_outputs[13] = fixed_to_real(x_out_6_imag, Q_outputs);
+    287             1                         50             actual_outputs[14] = fixed_to_real(x_out_7_real, Q_outputs);
+    288             1                         50             actual_outputs[15] = fixed_to_real(x_out_7_imag, Q_outputs);
+    289                                              
+    290                                                      // Print inputs for this test case
+    291             1                         50             $display("Inputs:");
+    292             1                         50             for (i = 0; i < 16; i = i + 2) begin
+    292             2                        400     
+    293             1                        400                 $display("  X[%0d] = %f + %fj", i/2, 
+    294                                                                   input_test_cases[tc][i], input_test_cases[tc][i+1]);
+    295                                                      end
+    296                                              
+    297                                                      // Compare with expected outputs
+    298             1                         50             $display("Expected vs DUT Output:");
+    299             1                         50             for (i = 0; i < 16; i = i + 2) begin
+    299             2                        400     
+    300             1                        400                 error = actual_outputs[i] - expected_outputs[tc][i];
+    301             1                        199                 if (error < 0) error = -error;
+    302                                                          if (error > TOLERANCE) begin
+    303             1                    ***0***                     $display("  ERROR: Out[%0d] Real: Exp=%f, DUT=%f, Err=%f", 
+    304                                                                       i/2, expected_outputs[tc][i], actual_outputs[i], error);
+    305             1                    ***0***                     case_errors++;
+    306             1                    ***0***                     errors++;
+    307                                                          end else begin
+    308             1                        400                     $display("  PASS : Out[%0d] Real: Exp=%f, DUT=%f", 
+    309                                                                       i/2, expected_outputs[tc][i], actual_outputs[i]);
+    310                                                          end
+    311                                              
+    312             1                        400                 error = actual_outputs[i+1] - expected_outputs[tc][i+1];
+    313             1                        188                 if (error < 0) error = -error;
+    314                                                          if (error > TOLERANCE) begin
+    315             1                    ***0***                     $display("  ERROR: Out[%0d] Imag: Exp=%f, DUT=%f, Err=%f", 
+    316                                                                       i/2, expected_outputs[tc][i+1], actual_outputs[i+1], error);
+    317             1                    ***0***                     case_errors++;
+    318             1                    ***0***                     errors++;
+    319                                                          end else begin
+    320             1                        400                     $display("  PASS : Out[%0d] Imag: Exp=%f, DUT=%f", 
+    321                                                                       i/2, expected_outputs[tc][i+1], actual_outputs[i+1]);
+    322                                                          end
+    323                                                      end
+    324                                              
+    325                                                      if (case_errors == 0) begin
+    326             1                         50                 $display("  PASS: Test case %0d passed", tc);
+    327                                                      end else begin
+    328             1                    ***0***                 $display("  FAIL: Test case %0d failed with %0d errors", tc, case_errors);
+    329                                                      end
+    330                                                  end
+    331                                              endtask
+    332                                                  
+    333                                                  // Main test sequence
+    334                                                  initial begin
+    335                                                      // Initialize
+    336             1                          1             rst_n = 0;
+    337             1                          1             start = 0;
+    338             1                          1             errors = 0;
+    339             1                          1             total_tests = 50;
+    340                                                      
+    341                                                      // Initialize all inputs to zero
+    342             1                          1             x_in_0_real = 0; x_in_0_imag = 0;
+    342             2                          1     
+    343             1                          1             x_in_1_real = 0; x_in_1_imag = 0;
+    343             2                          1     
+    344             1                          1             x_in_2_real = 0; x_in_2_imag = 0;
+    344             2                          1     
+    345             1                          1             x_in_3_real = 0; x_in_3_imag = 0;
+    345             2                          1     
+    346             1                          1             x_in_4_real = 0; x_in_4_imag = 0;
+    346             2                          1     
+    347             1                          1             x_in_5_real = 0; x_in_5_imag = 0;
+    347             2                          1     
+    348             1                          1             x_in_6_real = 0; x_in_6_imag = 0;
+    348             2                          1     
+    349             1                          1             x_in_7_real = 0; x_in_7_imag = 0;
+    349             2                          1     
+    350                                                      
+    351             1                          1             $display("=== FFT 8-Point Testbench Started ===");
+    352                                                      
+    353                                                      // Load test data
+    354             1                          1             load_test_cases();
+    355             1                          1             load_expected_outputs();
+    356                                                      
+    357                                                      // Reset
+    358             1                          1             #20;
+    359             1                          1             rst_n = 1;
+    360             1                          1             #20;
+    361                                                      
+    362                                                      // Run test cases
+    363             1                          1             for (test_case = 0; test_case < total_tests; test_case = test_case + 1) begin
+    363             2                         50     
+    364             1                         50                 $display("\n--- Running Test Case %0d ---", test_case);
+    365                                                          
+    366                                                          // Apply test case inputs
+    367             1                         50                 apply_test_case(test_case);
+    368                                                          
+    369                                                          // Start FFT computation
+    370             1                         50                 @(posedge clk);
+    371             1                         50                 start = 1;
+    372             1                         50                 @(posedge clk);
+    373             1                         50                 start = 0;
+    374                                                          
+    375                                                          // Wait for computation to complete
+    376             1                         50                 wait(done == 1);
+    377             1                         50                 @(posedge clk);
+    378                                                          
+    379                                                          // Check outputs
+    380                                                          if (valid_out) begin
+    381             1                         50                     check_outputs(test_case);
+    382                                                          end else begin
+    383             1                    ***0***                     $display("  ERROR: valid_out not asserted for test case %0d", test_case);
+    384             1                    ***0***                     errors = errors + 1;
+    385                                                          end
+    386                                                          
+    387                                                          // Wait a few cycles before next test
+    388             1                         50                 #50;
+    389                                                      end
+    390                                                      
+    391                                                      // Final summary
+    392             1                          1             $display("\n=== Test Summary ===");
+    393             1                          1             $display("Total Test Cases: %0d", total_tests);
+    394             1                          1             $display("Total Errors: %0d", errors);
+    395                                                      if (errors == 0) begin
+    396             1                          1                 $display("ALL TESTS PASSED!");
+    397                                                      end else begin
+    398             1                    ***0***                 $display("TESTS FAILED - %0d errors found", errors);
+    399                                                      end
+    400                                                      
+    401             1                          1             $display("=== FFT 8-Point Testbench Completed ===");
+    402             1                          1             $finish;
+    403                                                  end
+    404                                                  
+    405                                                  // Timeout watchdog
+    406                                                  initial begin
+    407             1                          1             #1000000; // 1ms timeout
+    408             1                    ***0***             $display("ERROR: Testbench timeout!");
+    409             1                    ***0***             $finish;
+    410                                                  end
+    411                                              
+    412                                              endmodule
+
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        38        26        12      68.4
+
+================================Branch Details================================
+
+Branch Coverage for file fft_8point_top_MatlabVerification.sv --
+
+------------------------------------IF Branch------------------------------------
+    121                                    13691     Count coming in to IF
+    121             1                       1200                     if (complex_str[i] == "+" || complex_str[i] == "-") begin
+                                           12491     All False Count
+Branch totals: 2 hits of 2 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    126                                      800     Count coming in to IF
+    126             1                        800                 if (plus_pos > 0) begin
+    131             1                    ***0***                 end else begin
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    148                                        1     Count coming in to IF
+    148             1                    ***0***                 if (input_file == 0) begin
+                                               1     All False Count
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    154                                       50     Count coming in to IF
+    154             1                         50                     if ($fgets(line, input_file)) begin
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    161                                     7988     Count coming in to IF
+    161             1                        400                                 if (line[k] == "," || k == line.len()-1) begin
+                                            7588     All False Count
+Branch totals: 2 hits of 2 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    167                                      400     Count coming in to IF
+    167             1                        400                             if (comma_pos > start_pos) begin
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    168                                      400     Count coming in to IF
+    168             1                         50                                 if (j == 7 && comma_pos == line.len()-1) begin
+    170             1                        350                                 end else begin
+Branch totals: 2 hits of 2 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    197                                        1     Count coming in to IF
+    197             1                    ***0***                 if (output_file == 0) begin
+                                               1     All False Count
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    203                                       50     Count coming in to IF
+    203             1                         50                     if ($fgets(line, output_file)) begin
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    210                                     8003     Count coming in to IF
+    210             1                        400                                 if (line[k] == "," || k == line.len()-1) begin
+                                            7603     All False Count
+Branch totals: 2 hits of 2 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    216                                      400     Count coming in to IF
+    216             1                        400                             if (comma_pos > start_pos) begin
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    217                                      400     Count coming in to IF
+    217             1                         50                                 if (j == 7 && comma_pos == line.len()-1) begin
+    219             1                        350                                 end else begin
+Branch totals: 2 hits of 2 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    301                                      400     Count coming in to IF
+    301             1                        199                 if (error < 0) error = -error;
+                                             201     All False Count
+Branch totals: 2 hits of 2 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    302                                      400     Count coming in to IF
+    302             1                    ***0***                 if (error > TOLERANCE) begin
+    307             1                        400                 end else begin
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    313                                      400     Count coming in to IF
+    313             1                        188                 if (error < 0) error = -error;
+                                             212     All False Count
+Branch totals: 2 hits of 2 branches = 100.0%
+
+------------------------------------IF Branch------------------------------------
+    314                                      400     Count coming in to IF
+    314             1                    ***0***                 if (error > TOLERANCE) begin
+    319             1                        400                 end else begin
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    325                                       50     Count coming in to IF
+    325             1                         50             if (case_errors == 0) begin
+    327             1                    ***0***             end else begin
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    380                                       50     Count coming in to IF
+    380             1                         50                 if (valid_out) begin
+    382             1                    ***0***                 end else begin
+Branch totals: 1 hit of 2 branches = 50.0%
+
+------------------------------------IF Branch------------------------------------
+    395                                        1     Count coming in to IF
+    395             1                          1             if (errors == 0) begin
+    397             1                    ***0***             end else begin
+Branch totals: 1 hit of 2 branches = 50.0%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms             10         8         2      80.0
+
+================================Condition Details================================
+
+Condition Coverage for file fft_8point_top_MatlabVerification.sv --
+
+----------------Focused Condition View-------------------
+Line       121 Item    1  ((complex_str[i] == 43) || (complex_str[i] == 45))
+Condition totals: 2 of 2 input terms covered = 100.0%
+
+----------------Focused Condition View-------------------
+Line       161 Item    1  ((line[k] == 44) || (k == (len(line) - 1)))
+Condition totals: 2 of 2 input terms covered = 100.0%
+
+----------------Focused Condition View-------------------
+Line       168 Item    1  ((j == 7) && (comma_pos == (len(line) - 1)))
+Condition totals: 1 of 2 input terms covered = 50.0%
+
+                      Input Term   Covered  Reason for no coverage   Hint
+                     -----------  --------  -----------------------  --------------
+                        (j == 7)         Y
+  (comma_pos == (len(line) - 1))         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target                        Non-masking condition(s)      
+ ---------  ---------  --------------------              -------------------------     
+  Row   1:          1  (j == 7)_0                        -                             
+  Row   2:          1  (j == 7)_1                        (comma_pos == (len(line) - 1))
+  Row   3:    ***0***  (comma_pos == (len(line) - 1))_0  (j == 7)                      
+  Row   4:          1  (comma_pos == (len(line) - 1))_1  (j == 7)                      
+
+----------------Focused Condition View-------------------
+Line       210 Item    1  ((line[k] == 44) || (k == (len(line) - 1)))
+Condition totals: 2 of 2 input terms covered = 100.0%
+
+----------------Focused Condition View-------------------
+Line       217 Item    1  ((j == 7) && (comma_pos == (len(line) - 1)))
+Condition totals: 1 of 2 input terms covered = 50.0%
+
+                      Input Term   Covered  Reason for no coverage   Hint
+                     -----------  --------  -----------------------  --------------
+                        (j == 7)         Y
+  (comma_pos == (len(line) - 1))         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target                        Non-masking condition(s)      
+ ---------  ---------  --------------------              -------------------------     
+  Row   1:          1  (j == 7)_0                        -                             
+  Row   2:          1  (j == 7)_1                        (comma_pos == (len(line) - 1))
+  Row   3:    ***0***  (comma_pos == (len(line) - 1))_0  (j == 7)                      
+  Row   4:          1  (comma_pos == (len(line) - 1))_1  (j == 7)                      
+
+
+Expression Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Expression Terms             0         0         0     100.0
+FSM Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FSMs                                                       100.0
+        States                       0         0         0     100.0
+        Transitions                  0         0         0     100.0
+Toggle Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Toggle Bins                   1354      1044       310      77.1
+
+================================Toggle Details================================
+
+Toggle Coverage for File fft_8point_top_MatlabVerification.sv --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+         13                                  rst_n           0           1       50.00 
+         45                           test_case[9]           0           0        0.00 
+         45                           test_case[8]           0           0        0.00 
+         45                           test_case[7]           0           0        0.00 
+         45                           test_case[6]           0           0        0.00 
+         45                           test_case[5]           0           1       50.00 
+         45                          test_case[31]           0           0        0.00 
+         45                          test_case[30]           0           0        0.00 
+         45                          test_case[29]           0           0        0.00 
+         45                          test_case[28]           0           0        0.00 
+         45                          test_case[27]           0           0        0.00 
+         45                          test_case[26]           0           0        0.00 
+         45                          test_case[25]           0           0        0.00 
+         45                          test_case[24]           0           0        0.00 
+         45                          test_case[23]           0           0        0.00 
+         45                          test_case[22]           0           0        0.00 
+         45                          test_case[21]           0           0        0.00 
+         45                          test_case[20]           0           0        0.00 
+         45                          test_case[19]           0           0        0.00 
+         45                          test_case[18]           0           0        0.00 
+         45                          test_case[17]           0           0        0.00 
+         45                          test_case[16]           0           0        0.00 
+         45                          test_case[15]           0           0        0.00 
+         45                          test_case[14]           0           0        0.00 
+         45                          test_case[13]           0           0        0.00 
+         45                          test_case[12]           0           0        0.00 
+         45                          test_case[11]           0           0        0.00 
+         45                          test_case[10]           0           0        0.00 
+         46                              errors[9]           0           0        0.00 
+         46                              errors[8]           0           0        0.00 
+         46                              errors[7]           0           0        0.00 
+         46                              errors[6]           0           0        0.00 
+         46                              errors[5]           0           0        0.00 
+         46                              errors[4]           0           0        0.00 
+         46                              errors[3]           0           0        0.00 
+         46                             errors[31]           0           0        0.00 
+         46                             errors[30]           0           0        0.00 
+         46                              errors[2]           0           0        0.00 
+         46                             errors[29]           0           0        0.00 
+         46                             errors[28]           0           0        0.00 
+         46                             errors[27]           0           0        0.00 
+         46                             errors[26]           0           0        0.00 
+         46                             errors[25]           0           0        0.00 
+         46                             errors[24]           0           0        0.00 
+         46                             errors[23]           0           0        0.00 
+         46                             errors[22]           0           0        0.00 
+         46                             errors[21]           0           0        0.00 
+         46                             errors[20]           0           0        0.00 
+         46                              errors[1]           0           0        0.00 
+         46                             errors[19]           0           0        0.00 
+         46                             errors[18]           0           0        0.00 
+         46                             errors[17]           0           0        0.00 
+         46                             errors[16]           0           0        0.00 
+         46                             errors[15]           0           0        0.00 
+         46                             errors[14]           0           0        0.00 
+         46                             errors[13]           0           0        0.00 
+         46                             errors[12]           0           0        0.00 
+         46                             errors[11]           0           0        0.00 
+         46                             errors[10]           0           0        0.00 
+         46                              errors[0]           0           0        0.00 
+         47                         total_tests[9]           0           0        0.00 
+         47                         total_tests[8]           0           0        0.00 
+         47                         total_tests[7]           0           0        0.00 
+         47                         total_tests[6]           0           0        0.00 
+         47                         total_tests[5]           0           0        0.00 
+         47                         total_tests[4]           0           0        0.00 
+         47                         total_tests[3]           0           0        0.00 
+         47                        total_tests[31]           0           0        0.00 
+         47                        total_tests[30]           0           0        0.00 
+         47                         total_tests[2]           0           0        0.00 
+         47                        total_tests[29]           0           0        0.00 
+         47                        total_tests[28]           0           0        0.00 
+         47                        total_tests[27]           0           0        0.00 
+         47                        total_tests[26]           0           0        0.00 
+         47                        total_tests[25]           0           0        0.00 
+         47                        total_tests[24]           0           0        0.00 
+         47                        total_tests[23]           0           0        0.00 
+         47                        total_tests[22]           0           0        0.00 
+         47                        total_tests[21]           0           0        0.00 
+         47                        total_tests[20]           0           0        0.00 
+         47                         total_tests[1]           0           0        0.00 
+         47                        total_tests[19]           0           0        0.00 
+         47                        total_tests[18]           0           0        0.00 
+         47                        total_tests[17]           0           0        0.00 
+         47                        total_tests[16]           0           0        0.00 
+         47                        total_tests[15]           0           0        0.00 
+         47                        total_tests[14]           0           0        0.00 
+         47                        total_tests[13]           0           0        0.00 
+         47                        total_tests[12]           0           0        0.00 
+         47                        total_tests[11]           0           0        0.00 
+         47                        total_tests[10]           0           0        0.00 
+         47                         total_tests[0]           0           0        0.00 
+         50                         output_file[9]           0           0        0.00 
+         50                         output_file[8]           0           0        0.00 
+         50                         output_file[7]           0           0        0.00 
+         50                         output_file[6]           0           0        0.00 
+         50                         output_file[5]           0           0        0.00 
+         50                         output_file[4]           0           0        0.00 
+         50                         output_file[3]           0           0        0.00 
+         50                        output_file[31]           0           0        0.00 
+         50                        output_file[30]           0           0        0.00 
+         50                         output_file[2]           0           0        0.00 
+         50                        output_file[29]           0           0        0.00 
+         50                        output_file[28]           0           0        0.00 
+         50                        output_file[27]           0           0        0.00 
+         50                        output_file[26]           0           0        0.00 
+         50                        output_file[25]           0           0        0.00 
+         50                        output_file[24]           0           0        0.00 
+         50                        output_file[23]           0           0        0.00 
+         50                        output_file[22]           0           0        0.00 
+         50                        output_file[21]           0           0        0.00 
+         50                        output_file[20]           0           0        0.00 
+         50                         output_file[1]           0           0        0.00 
+         50                        output_file[19]           0           0        0.00 
+         50                        output_file[18]           0           0        0.00 
+         50                        output_file[17]           0           0        0.00 
+         50                        output_file[16]           0           0        0.00 
+         50                        output_file[15]           0           0        0.00 
+         50                        output_file[14]           0           0        0.00 
+         50                        output_file[13]           0           0        0.00 
+         50                        output_file[12]           0           0        0.00 
+         50                        output_file[11]           0           0        0.00 
+         50                        output_file[10]           0           0        0.00 
+         50                         output_file[0]           0           0        0.00 
+         50                          input_file[9]           0           0        0.00 
+         50                          input_file[8]           0           0        0.00 
+         50                          input_file[7]           0           0        0.00 
+         50                          input_file[6]           0           0        0.00 
+         50                          input_file[5]           0           0        0.00 
+         50                          input_file[4]           0           0        0.00 
+         50                          input_file[3]           0           0        0.00 
+         50                         input_file[31]           0           0        0.00 
+         50                         input_file[30]           0           0        0.00 
+         50                          input_file[2]           0           0        0.00 
+         50                         input_file[29]           0           0        0.00 
+         50                         input_file[28]           0           0        0.00 
+         50                         input_file[27]           0           0        0.00 
+         50                         input_file[26]           0           0        0.00 
+         50                         input_file[25]           0           0        0.00 
+         50                         input_file[24]           0           0        0.00 
+         50                         input_file[23]           0           0        0.00 
+         50                         input_file[22]           0           0        0.00 
+         50                         input_file[21]           0           0        0.00 
+         50                         input_file[20]           0           0        0.00 
+         50                          input_file[1]           0           0        0.00 
+         50                         input_file[19]           0           0        0.00 
+         50                         input_file[18]           0           0        0.00 
+         50                         input_file[17]           0           0        0.00 
+         50                         input_file[16]           0           0        0.00 
+         50                         input_file[15]           0           0        0.00 
+         50                         input_file[14]           0           0        0.00 
+         50                         input_file[13]           0           0        0.00 
+         50                         input_file[12]           0           0        0.00 
+         50                         input_file[11]           0           0        0.00 
+         50                         input_file[10]           0           0        0.00 
+         50                          input_file[0]           0           0        0.00 
+
+Total Node Count     =        677 
+Toggled Node Count   =        521 
+Untoggled Node Count =        156 
+
+Toggle Coverage      =       77.1% (1044 of 1354 bins)
+
+=================================================================================
+=== File: fft_FirstStage.v
+=================================================================================
+Statement Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Stmts                           33        33         0     100.0
+
+================================Statement Details================================
+
+Statement Coverage for file fft_FirstStage.v --
+
+    1                                                module fft_FirstStage #(
+    2                                                  parameter integer WIDTH = 16,
+    3                                                  parameter integer Q = 12
+    4                                                )(
+    5                                                  input wire signed                    clk,
+    6                                                  input  wire signed                    rst_n,
+    7                                                  input  wire signed    [WIDTH-1:0] x_in_0_real,
+    8                                                  input  wire signed    [WIDTH-1:0] x_in_1_real,
+    9                                                  input  wire signed    [WIDTH-1:0] x_in_2_real,
+    10                                                 input  wire signed    [WIDTH-1:0] x_in_3_real,
+    11                                                 input  wire signed    [WIDTH-1:0] x_in_4_real,
+    12                                                 input  wire signed    [WIDTH-1:0] x_in_5_real,
+    13                                                 input  wire signed    [WIDTH-1:0] x_in_6_real,
+    14                                                 input  wire signed    [WIDTH-1:0] x_in_7_real,
+    15                                               
+    16                                                 input  wire signed    [WIDTH-1:0] x_in_0_imag,
+    17                                                 input  wire signed    [WIDTH-1:0] x_in_1_imag,
+    18                                                 input  wire signed    [WIDTH-1:0] x_in_2_imag,
+    19                                                 input  wire signed    [WIDTH-1:0] x_in_3_imag,
+    20                                                 input  wire signed    [WIDTH-1:0] x_in_4_imag,
+    21                                                 input  wire signed    [WIDTH-1:0] x_in_5_imag,
+    22                                                 input  wire signed    [WIDTH-1:0] x_in_6_imag,
+    23                                                 input  wire signed    [WIDTH-1:0] x_in_7_imag,
+    24                                               
+    25                                                 output reg signed     [WIDTH-1:0] x_out_0_real,
+    26                                                 output reg signed     [WIDTH-1:0] x_out_1_real,
+    27                                                 output reg signed     [WIDTH-1:0] x_out_2_real,
+    28                                                 output reg signed     [WIDTH-1:0] x_out_3_real,
+    29                                                 output reg signed     [WIDTH-1:0] x_out_4_real,
+    30                                                 output reg signed     [WIDTH-1:0] x_out_5_real,
+    31                                                 output reg signed     [WIDTH-1:0] x_out_6_real,
+    32                                                 output reg signed     [WIDTH-1:0] x_out_7_real,
+    33                                               
+    34                                                 output reg signed     [WIDTH-1:0] x_out_0_imag,
+    35                                                 output reg signed     [WIDTH-1:0] x_out_1_imag,
+    36                                                 output reg signed     [WIDTH-1:0] x_out_2_imag,
+    37                                                 output reg signed     [WIDTH-1:0] x_out_3_imag,
+    38                                                 output reg signed     [WIDTH-1:0] x_out_4_imag,
+    39                                                 output reg signed     [WIDTH-1:0] x_out_5_imag,
+    40                                                 output reg signed     [WIDTH-1:0] x_out_6_imag,
+    41                                                 output reg signed     [WIDTH-1:0] x_out_7_imag
+    42                                               );
+    43                                               
+    44                                                 // Stage-1 registers: hold the reordered inputs
+    45                                                 wire signed   [WIDTH-1:0] x_flag_0_real,x_flag_0_imag, x_flag_1_real,x_flag_1_imag, x_flag_2_real,x_flag_2_imag, x_flag_3_real,x_flag_3_imag;
+    46                                                 wire signed   [WIDTH-1:0] x_flag_4_real,x_flag_4_imag, x_flag_5_real,x_flag_5_imag, x_flag_6_real,x_flag_6_imag, x_flag_7_real,x_flag_7_imag;
+    47                                                 
+    48                                                 // Input reordering (bit-reversed order for radix-2 FFT)
+    49                                                 assign x_flag_0_real = x_in_0_real;
+    50                                                 assign x_flag_0_imag = x_in_0_imag;
+    51                                               
+    52                                                 assign x_flag_1_real = x_in_4_real;
+    53                                                 assign x_flag_1_imag = x_in_4_imag;
+    54                                               
+    55                                                 assign x_flag_2_real = x_in_2_real;
+    56                                                 assign x_flag_2_imag = x_in_2_imag;
+    57                                               
+    58                                                 assign x_flag_3_real = x_in_6_real;
+    59                                                 assign x_flag_3_imag = x_in_6_imag;
+    60                                               
+    61                                                 assign x_flag_4_real = x_in_1_real;
+    62                                                 assign x_flag_4_imag = x_in_1_imag;
+    63                                               
+    64                                                 assign x_flag_5_real = x_in_5_real;
+    65                                                 assign x_flag_5_imag = x_in_5_imag;
+    66                                               
+    67                                                 assign x_flag_6_real = x_in_3_real;
+    68                                                 assign x_flag_6_imag = x_in_3_imag;
+    69                                               
+    70                                                 assign x_flag_7_real = x_in_7_real;
+    71                                                 assign x_flag_7_imag = x_in_7_imag;
+    72                                               
+    73                                               
+    74                                                 // Stage-2 registers: register the computed outputs
+    75              1                         53       always @(posedge clk or negedge rst_n) begin
+    76                                                   if(!rst_n) begin
+    77              1                          2           x_out_0_real <= 0;
+    78              1                          2           x_out_1_real <= 0;
+    79              1                          2           x_out_2_real <= 0;
+    80              1                          2           x_out_3_real <= 0;
+    81              1                          2           x_out_4_real <= 0;
+    82              1                          2           x_out_5_real <= 0;
+    83              1                          2           x_out_6_real <= 0;
+    84              1                          2           x_out_7_real <= 0;
+    85                                               
+    86              1                          2           x_out_0_imag <= 0;
+    87              1                          2           x_out_1_imag <= 0;
+    88              1                          2           x_out_2_imag <= 0;
+    89              1                          2           x_out_3_imag <= 0;
+    90              1                          2           x_out_4_imag <= 0;
+    91              1                          2           x_out_5_imag <= 0;
+    92              1                          2           x_out_6_imag <= 0;
+    93              1                          2           x_out_7_imag <= 0;
+    94                                                   end
+    95                                                   else begin
+    96              1                         51           x_out_0_real <=x_flag_0_real +x_flag_1_real;
+    97              1                         51           x_out_0_imag <=x_flag_0_imag +x_flag_1_imag;
+    98                                                     
+    99              1                         51           x_out_1_real <=x_flag_0_real -x_flag_1_real;
+    100             1                         51           x_out_1_imag <=x_flag_0_imag -x_flag_1_imag;
+    101                                                    
+    102             1                         51           x_out_2_real <=x_flag_2_real +x_flag_3_real;
+    103             1                         51           x_out_2_imag <=x_flag_2_imag +x_flag_3_imag;
+    104                                                    
+    105             1                         51           x_out_3_real <=x_flag_2_real -x_flag_3_real;
+    106             1                         51           x_out_3_imag <=x_flag_2_imag -x_flag_3_imag;
+    107                                                    
+    108             1                         51           x_out_4_real <=x_flag_4_real +x_flag_5_real;
+    109             1                         51           x_out_4_imag <=x_flag_4_imag +x_flag_5_imag;
+    110                                              
+    111             1                         51           x_out_5_real <=x_flag_4_real -x_flag_5_real;
+    112             1                         51           x_out_5_imag <=x_flag_4_imag -x_flag_5_imag;
+    113                                                    
+    114             1                         51           x_out_6_real <=x_flag_6_real +x_flag_7_real;
+    115             1                         51           x_out_6_imag <=x_flag_6_imag +x_flag_7_imag;
+    116                                              
+    117             1                         51           x_out_7_real <=x_flag_6_real -x_flag_7_real;
+    118             1                         51           x_out_7_imag <=x_flag_6_imag -x_flag_7_imag;
+    119                                                  end
+    120                                                end
+    121                                              endmodule
+
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                         2         2         0     100.0
+
+================================Branch Details================================
+
+Branch Coverage for file fft_FirstStage.v --
+
+------------------------------------IF Branch------------------------------------
+    76                                        53     Count coming in to IF
+    76              1                          2         if(!rst_n) begin
+    95              1                         51         else begin
+Branch totals: 2 hits of 2 branches = 100.0%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              0         0         0     100.0
+Expression Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Expression Terms             0         0         0     100.0
+FSM Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FSMs                                                       100.0
+        States                       0         0         0     100.0
+        Transitions                  0         0         0     100.0
+Toggle Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Toggle Bins                   1024      1024         0     100.0
+
+================================Toggle Details================================
+
+Toggle Coverage for File fft_FirstStage.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+
+Total Node Count     =        512 
+Toggled Node Count   =        512 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =      100.0% (1024 of 1024 bins)
+
+=================================================================================
+=== File: fft_SecondStage.v
+=================================================================================
+Statement Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Stmts                           65        65         0     100.0
+
+================================Statement Details================================
+
+Statement Coverage for file fft_SecondStage.v --
+
+    1                                                module fft_SecondStage #(
+    2                                                  parameter integer WIDTH = 16,
+    3                                                  parameter integer Q_IN = 12,   // Input fractional bits
+    4                                                  parameter integer Q_OUT = 11   // Output fractional bits
+    5                                                )(
+    6                                                  input  wire                   clk,
+    7                                                  input  wire                   rst_n,
+    8                                                
+    9                                                  input  wire signed [WIDTH-1:0] x_in_0_real,
+    10                                                 input  wire signed [WIDTH-1:0] x_in_1_real,
+    11                                                 input  wire signed [WIDTH-1:0] x_in_2_real,
+    12                                                 input  wire signed [WIDTH-1:0] x_in_3_real,
+    13                                                 input  wire signed [WIDTH-1:0] x_in_4_real,
+    14                                                 input  wire signed [WIDTH-1:0] x_in_5_real,
+    15                                                 input  wire signed [WIDTH-1:0] x_in_6_real,
+    16                                                 input  wire signed [WIDTH-1:0] x_in_7_real,
+    17                                               
+    18                                                 input  wire signed [WIDTH-1:0] x_in_0_imag,
+    19                                                 input  wire signed [WIDTH-1:0] x_in_1_imag,
+    20                                                 input  wire signed [WIDTH-1:0] x_in_2_imag,
+    21                                                 input  wire signed [WIDTH-1:0] x_in_3_imag,
+    22                                                 input  wire signed [WIDTH-1:0] x_in_4_imag,
+    23                                                 input  wire signed [WIDTH-1:0] x_in_5_imag,
+    24                                                 input  wire signed [WIDTH-1:0] x_in_6_imag,
+    25                                                 input  wire signed [WIDTH-1:0] x_in_7_imag,
+    26                                               
+    27                                                 output reg  signed [WIDTH-1:0] x_out_0_real,
+    28                                                 output reg  signed [WIDTH-1:0] x_out_1_real,
+    29                                                 output reg  signed [WIDTH-1:0] x_out_2_real,
+    30                                                 output reg  signed [WIDTH-1:0] x_out_3_real,
+    31                                                 output reg  signed [WIDTH-1:0] x_out_4_real,
+    32                                                 output reg  signed [WIDTH-1:0] x_out_5_real,
+    33                                                 output reg  signed [WIDTH-1:0] x_out_6_real,
+    34                                                 output reg  signed [WIDTH-1:0] x_out_7_real,
+    35                                               
+    36                                                 output reg  signed [WIDTH-1:0] x_out_0_imag,
+    37                                                 output reg  signed [WIDTH-1:0] x_out_1_imag,
+    38                                                 output reg  signed [WIDTH-1:0] x_out_2_imag,
+    39                                                 output reg  signed [WIDTH-1:0] x_out_3_imag,
+    40                                                 output reg  signed [WIDTH-1:0] x_out_4_imag,
+    41                                                 output reg  signed [WIDTH-1:0] x_out_5_imag,
+    42                                                 output reg  signed [WIDTH-1:0] x_out_6_imag,
+    43                                                 output reg  signed [WIDTH-1:0] x_out_7_imag
+    44                                               );
+    45                                               
+    46                                                 // Intermediate results with extended width to prevent overflow
+    47                                                 wire signed [WIDTH:0] x_flag_0_real_ext, x_flag_0_imag_ext;
+    48                                                 wire signed [WIDTH:0] x_flag_1_real_ext, x_flag_1_imag_ext;
+    49                                                 wire signed [WIDTH:0] x_flag_2_real_ext, x_flag_2_imag_ext;
+    50                                                 wire signed [WIDTH:0] x_flag_3_real_ext, x_flag_3_imag_ext;
+    51                                                 wire signed [WIDTH:0] x_flag_4_real_ext, x_flag_4_imag_ext;
+    52                                                 wire signed [WIDTH:0] x_flag_5_real_ext, x_flag_5_imag_ext;
+    53                                                 wire signed [WIDTH:0] x_flag_6_real_ext, x_flag_6_imag_ext;
+    54                                                 wire signed [WIDTH:0] x_flag_7_real_ext, x_flag_7_imag_ext;
+    55                                               
+    56                                                 // Rounded results for format conversion
+    57                                                 wire signed [WIDTH:0] x_flag_0_real_rounded, x_flag_0_imag_rounded;
+    58                                                 wire signed [WIDTH:0] x_flag_1_real_rounded, x_flag_1_imag_rounded;
+    59                                                 wire signed [WIDTH:0] x_flag_2_real_rounded, x_flag_2_imag_rounded;
+    60                                                 wire signed [WIDTH:0] x_flag_3_real_rounded, x_flag_3_imag_rounded;
+    61                                                 wire signed [WIDTH:0] x_flag_4_real_rounded, x_flag_4_imag_rounded;
+    62                                                 wire signed [WIDTH:0] x_flag_5_real_rounded, x_flag_5_imag_rounded;
+    63                                                 wire signed [WIDTH:0] x_flag_6_real_rounded, x_flag_6_imag_rounded;
+    64                                                 wire signed [WIDTH:0] x_flag_7_real_rounded, x_flag_7_imag_rounded;
+    65                                               
+    66                                                 // FFT butterfly operations with sign extension
+    67              1                         52       assign x_flag_0_real_ext = $signed({x_in_0_real[WIDTH-1], x_in_0_real} + {x_in_2_real[WIDTH-1], x_in_2_real});
+    68              1                         52       assign x_flag_0_imag_ext = $signed({x_in_0_imag[WIDTH-1], x_in_0_imag} + {x_in_2_imag[WIDTH-1], x_in_2_imag});
+    69                                               
+    70              1                         52       assign x_flag_1_real_ext = $signed({x_in_1_real[WIDTH-1], x_in_1_real} + {x_in_3_imag[WIDTH-1], x_in_3_imag});
+    71              1                         52       assign x_flag_1_imag_ext = $signed({x_in_1_imag[WIDTH-1], x_in_1_imag} - {x_in_3_real[WIDTH-1], x_in_3_real});
+    72                                               
+    73              1                         52       assign x_flag_2_real_ext = $signed({x_in_0_real[WIDTH-1], x_in_0_real} - {x_in_2_real[WIDTH-1], x_in_2_real});
+    74              1                         52       assign x_flag_2_imag_ext = $signed({x_in_0_imag[WIDTH-1], x_in_0_imag} - {x_in_2_imag[WIDTH-1], x_in_2_imag});
+    75                                               
+    76              1                         52       assign x_flag_3_real_ext = $signed({x_in_1_real[WIDTH-1], x_in_1_real} - {x_in_3_imag[WIDTH-1], x_in_3_imag});
+    77              1                         52       assign x_flag_3_imag_ext = $signed({x_in_1_imag[WIDTH-1], x_in_1_imag} + {x_in_3_real[WIDTH-1], x_in_3_real});
+    78                                               
+    79              1                         52       assign x_flag_4_real_ext = $signed({x_in_4_real[WIDTH-1], x_in_4_real} + {x_in_6_real[WIDTH-1], x_in_6_real});
+    80              1                         52       assign x_flag_4_imag_ext = $signed({x_in_4_imag[WIDTH-1], x_in_4_imag} + {x_in_6_imag[WIDTH-1], x_in_6_imag});
+    81                                               
+    82              1                         52       assign x_flag_5_real_ext = $signed({x_in_5_real[WIDTH-1], x_in_5_real} + {x_in_7_imag[WIDTH-1], x_in_7_imag});
+    83              1                         52       assign x_flag_5_imag_ext = $signed({x_in_5_imag[WIDTH-1], x_in_5_imag} - {x_in_7_real[WIDTH-1], x_in_7_real});
+    84                                               
+    85              1                         52       assign x_flag_6_real_ext = $signed({x_in_4_real[WIDTH-1], x_in_4_real} - {x_in_6_real[WIDTH-1], x_in_6_real});
+    86              1                         52       assign x_flag_6_imag_ext = $signed({x_in_4_imag[WIDTH-1], x_in_4_imag} - {x_in_6_imag[WIDTH-1], x_in_6_imag});
+    87                                               
+    88              1                         52       assign x_flag_7_real_ext = $signed({x_in_5_real[WIDTH-1], x_in_5_real} - {x_in_7_imag[WIDTH-1], x_in_7_imag});
+    89              1                         52       assign x_flag_7_imag_ext = $signed({x_in_5_imag[WIDTH-1], x_in_5_imag} + {x_in_7_real[WIDTH-1], x_in_7_real});
+    90                                               
+    91                                                 // Add rounding bit (0.5 in fixed-point) before right shift
+    92                                                 // For Q12.4 to Q11.5 conversion, we need to right shift by 1 bit
+    93                                                 // Rounding bit = 2^(shift-1) = 2^0 = 1
+    94              1                         52       assign x_flag_0_real_rounded = $signed(x_flag_0_real_ext + 1'b1) ;
+    95              1                         52       assign x_flag_0_imag_rounded = $signed(x_flag_0_imag_ext + 1'b1) ;
+    96                                                 
+    97              1                         52       assign x_flag_1_real_rounded = $signed(x_flag_1_real_ext + 1'b1) ;
+    98              1                         52       assign x_flag_1_imag_rounded = $signed(x_flag_1_imag_ext + 1'b1) ;
+    99                                                 
+    100             1                         52       assign x_flag_2_real_rounded = $signed(x_flag_2_real_ext + 1'b1) ;
+    101             1                         52       assign x_flag_2_imag_rounded = $signed(x_flag_2_imag_ext + 1'b1) ;
+    102                                                
+    103             1                         52       assign x_flag_3_real_rounded = $signed(x_flag_3_real_ext + 1'b1) ;
+    104             1                         52       assign x_flag_3_imag_rounded = $signed(x_flag_3_imag_ext + 1'b1) ;
+    105                                                
+    106             1                         52       assign x_flag_4_real_rounded = $signed(x_flag_4_real_ext + 1'b1) ;
+    107             1                         52       assign x_flag_4_imag_rounded = $signed(x_flag_4_imag_ext + 1'b1) ;
+    108                                                
+    109             1                         52       assign x_flag_5_real_rounded = $signed(x_flag_5_real_ext + 1'b1) ;
+    110             1                         52       assign x_flag_5_imag_rounded = $signed(x_flag_5_imag_ext + 1'b1) ;
+    111                                                
+    112             1                         52       assign x_flag_6_real_rounded = $signed(x_flag_6_real_ext + 1'b1) ;
+    113             1                         52       assign x_flag_6_imag_rounded = $signed(x_flag_6_imag_ext + 1'b1) ;
+    114                                                
+    115             1                         52       assign x_flag_7_real_rounded = $signed(x_flag_7_real_ext + 1'b1) ;
+    116             1                         52       assign x_flag_7_imag_rounded = $signed(x_flag_7_imag_ext + 1'b1) ;
+    117                                              
+    118             1                         53       always @(posedge clk or negedge rst_n) begin
+    119                                                  if(!rst_n) begin
+    120             1                          2           x_out_0_real <= 16'h0000; x_out_0_imag <= 16'h0000;
+    120             2                          2     
+    121             1                          2           x_out_1_real <= 16'h0000; x_out_1_imag <= 16'h0000;
+    121             2                          2     
+    122             1                          2           x_out_2_real <= 16'h0000; x_out_2_imag <= 16'h0000;
+    122             2                          2     
+    123             1                          2           x_out_3_real <= 16'h0000; x_out_3_imag <= 16'h0000;
+    123             2                          2     
+    124             1                          2           x_out_4_real <= 16'h0000; x_out_4_imag <= 16'h0000;
+    124             2                          2     
+    125             1                          2           x_out_5_real <= 16'h0000; x_out_5_imag <= 16'h0000;
+    125             2                          2     
+    126             1                          2           x_out_6_real <= 16'h0000; x_out_6_imag <= 16'h0000;
+    126             2                          2     
+    127             1                          2           x_out_7_real <= 16'h0000; x_out_7_imag <= 16'h0000;
+    127             2                          2     
+    128                                                  end
+    129                                                  else begin
+    130                                                    // Convert from Q12.4 to Q11.5 format by right shifting 1 bit with rounding
+    131             1                         51           x_out_0_real <= $signed( x_flag_0_real_rounded[WIDTH:1]) ;
+    132             1                         51           x_out_0_imag <= $signed( x_flag_0_imag_rounded[WIDTH:1]) ;
+    133                                                    
+    134             1                         51           x_out_1_real <= $signed( x_flag_1_real_rounded[WIDTH:1]) ;
+    135             1                         51           x_out_1_imag <= $signed( x_flag_1_imag_rounded[WIDTH:1]) ;
+    136                                                    
+    137             1                         51           x_out_2_real <= $signed( x_flag_2_real_rounded[WIDTH:1]) ;
+    138             1                         51           x_out_2_imag <= $signed( x_flag_2_imag_rounded[WIDTH:1]) ;
+    139                                                    
+    140             1                         51           x_out_3_real <= $signed( x_flag_3_real_rounded[WIDTH:1]) ;
+    141             1                         51           x_out_3_imag <= $signed( x_flag_3_imag_rounded[WIDTH:1]) ;
+    142                                                    
+    143             1                         51           x_out_4_real <= $signed( x_flag_4_real_rounded[WIDTH:1]) ;
+    144             1                         51           x_out_4_imag <= $signed( x_flag_4_imag_rounded[WIDTH:1]) ;
+    145                                                    
+    146             1                         51           x_out_5_real <= $signed( x_flag_5_real_rounded[WIDTH:1]) ;
+    147             1                         51           x_out_5_imag <= $signed( x_flag_5_imag_rounded[WIDTH:1]) ;
+    148                                                    
+    149             1                         51           x_out_6_real <= $signed( x_flag_6_real_rounded[WIDTH:1]) ;
+    150             1                         51           x_out_6_imag <= $signed( x_flag_6_imag_rounded[WIDTH:1]) ;
+    151                                                    
+    152             1                         51           x_out_7_real <= $signed( x_flag_7_real_rounded[WIDTH:1]) ;
+    153             1                         51           x_out_7_imag <= $signed( x_flag_7_imag_rounded[WIDTH:1]) ;
+    154                                                  end
+    155                                                end
+    156                                              
+    157                                              endmodule
+
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                         2         2         0     100.0
+
+================================Branch Details================================
+
+Branch Coverage for file fft_SecondStage.v --
+
+------------------------------------IF Branch------------------------------------
+    119                                       53     Count coming in to IF
+    119             1                          2         if(!rst_n) begin
+    129             1                         51         else begin
+Branch totals: 2 hits of 2 branches = 100.0%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              0         0         0     100.0
+Expression Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Expression Terms             0         0         0     100.0
+FSM Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FSMs                                                       100.0
+        States                       0         0         0     100.0
+        Transitions                  0         0         0     100.0
+Toggle Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Toggle Bins                   1600      1600         0     100.0
+
+================================Toggle Details================================
+
+Toggle Coverage for File fft_SecondStage.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+
+Total Node Count     =        800 
+Toggled Node Count   =        800 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =      100.0% (1600 of 1600 bins)
+
+=================================================================================
+=== File: fft_ThirdStage.v
+=================================================================================
+Statement Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Stmts                           57        57         0     100.0
+
+================================Statement Details================================
+
+Statement Coverage for file fft_ThirdStage.v --
+
+    1                                                module fft_ThirdStage #(
+    2                                                  parameter integer WIDTH = 16,
+    3                                                  parameter integer Q = 11
+    4                                                )(
+    5                                                  input  wire                   clk,
+    6                                                  input  wire                   rst_n,
+    7                                                
+    8                                                  input  wire signed [WIDTH-1:0] x_in_0_real,
+    9                                                  input  wire signed [WIDTH-1:0] x_in_0_imag,
+    10                                                 input  wire signed [WIDTH-1:0] x_in_1_real,
+    11                                                 input  wire signed [WIDTH-1:0] x_in_1_imag,
+    12                                                 input  wire signed [WIDTH-1:0] x_in_2_real,
+    13                                                 input  wire signed [WIDTH-1:0] x_in_2_imag,
+    14                                                 input  wire signed [WIDTH-1:0] x_in_3_real,
+    15                                                 input  wire signed [WIDTH-1:0] x_in_3_imag,
+    16                                                 input  wire signed [WIDTH-1:0] x_in_4_real,
+    17                                                 input  wire signed [WIDTH-1:0] x_in_4_imag,
+    18                                                 input  wire signed [WIDTH-1:0] x_in_5_real,
+    19                                                 input  wire signed [WIDTH-1:0] x_in_5_imag,
+    20                                                 input  wire signed [WIDTH-1:0] x_in_6_real,
+    21                                                 input  wire signed [WIDTH-1:0] x_in_6_imag,
+    22                                                 input  wire signed [WIDTH-1:0] x_in_7_real,
+    23                                                 input  wire signed [WIDTH-1:0] x_in_7_imag,
+    24                                               
+    25                                                 output reg  signed [WIDTH-1:0] x_out_0_real,
+    26                                                 output reg  signed [WIDTH-1:0] x_out_1_real,
+    27                                                 output reg  signed [WIDTH-1:0] x_out_2_real,
+    28                                                 output reg  signed [WIDTH-1:0] x_out_3_real,
+    29                                                 output reg  signed [WIDTH-1:0] x_out_4_real,
+    30                                                 output reg  signed [WIDTH-1:0] x_out_5_real,
+    31                                                 output reg  signed [WIDTH-1:0] x_out_6_real,
+    32                                                 output reg  signed [WIDTH-1:0] x_out_7_real,
+    33                                                 output reg  signed [WIDTH-1:0] x_out_0_imag,
+    34                                                 output reg  signed [WIDTH-1:0] x_out_1_imag,
+    35                                                 output reg  signed [WIDTH-1:0] x_out_2_imag,
+    36                                                 output reg  signed [WIDTH-1:0] x_out_3_imag,
+    37                                                 output reg  signed [WIDTH-1:0] x_out_4_imag,
+    38                                                 output reg  signed [WIDTH-1:0] x_out_5_imag,
+    39                                                 output reg  signed [WIDTH-1:0] x_out_6_imag,
+    40                                                 output reg  signed [WIDTH-1:0] x_out_7_imag
+    41                                               );
+    42                                               
+    43                                               // Fixed-point twiddle factors (Q11 format for default Q=11)
+    44                                               // 0.7071 * 2^11 = 1448.9 ≈ 1449
+    45                                               localparam signed [WIDTH-1:0] w1_8_real = 1449;   // 0.7071 in Q11
+    46                                               localparam signed [WIDTH-1:0] w1_8_imag = -1449;  // -0.7071 in Q11
+    47                                               /////////////////////////
+    48                                               localparam signed [WIDTH-1:0] w2_8_real = 0;      // 0 
+    49                                               localparam signed [WIDTH-1:0] w2_8_imag = -(1 << Q); // -1 in Q11 = -2048
+    50                                               /////////////////////////
+    51                                               localparam signed [WIDTH-1:0] w3_8_real = -1449;  // -0.7071 in Q11
+    52                                               localparam signed [WIDTH-1:0] w3_8_imag = -1449;  // -0.7071 in Q11
+    53                                               /////////////////////////
+    54                                               
+    55                                                 // Intermediate wires for complex multiplications
+    56                                                 wire signed [2*WIDTH-1:0] mult_temp_1_real, mult_temp_1_imag;
+    57                                                 wire signed [2*WIDTH-1:0] mult_temp_3_real, mult_temp_3_imag;
+    58                                                 wire signed [2*WIDTH-1:0] mult_temp_5_real, mult_temp_5_imag;
+    59                                                 wire signed [2*WIDTH-1:0] mult_temp_7_real, mult_temp_7_imag;
+    60                                               
+    61                                                 // Complex multiplication: (a + jb) * (c + jd) = (ac - bd) + j(ad + bc)
+    62                                                 // For x_flag_1: x_in_1 + w1_8 * x_in_5
+    63              1                         52       assign mult_temp_1_real = (w1_8_real * x_in_5_real) - (w1_8_imag * x_in_5_imag);
+    64              1                         52       assign mult_temp_1_imag = (w1_8_real * x_in_5_imag) + (w1_8_imag * x_in_5_real);
+    65                                               
+    66                                                 // For x_flag_3: x_in_3 + w3_8 * x_in_7
+    67              1                         52       assign mult_temp_3_real = (w3_8_real * x_in_7_real) - (w3_8_imag * x_in_7_imag);
+    68              1                         52       assign mult_temp_3_imag = (w3_8_real * x_in_7_imag) + (w3_8_imag * x_in_7_real);
+    69                                               
+    70                                                 // For x_flag_5: x_in_1 - w1_8 * x_in_5
+    71              1                         52       assign mult_temp_5_real = (w1_8_real * x_in_5_real) - (w1_8_imag * x_in_5_imag);
+    72              1                         52       assign mult_temp_5_imag = (w1_8_real * x_in_5_imag) + (w1_8_imag * x_in_5_real);
+    73                                               
+    74                                                 // For x_flag_7: x_in_3 - w3_8 * x_in_7
+    75              1                         52       assign mult_temp_7_real = (w3_8_real * x_in_7_real) - (w3_8_imag * x_in_7_imag);
+    76              1                         52       assign mult_temp_7_imag = (w3_8_real * x_in_7_imag) + (w3_8_imag * x_in_7_real);
+    77                                               
+    78                                                 wire signed [WIDTH-1:0] x_flag_0_real;
+    79                                                 wire signed [WIDTH-1:0] x_flag_1_real;
+    80                                                 wire signed [WIDTH-1:0] x_flag_2_real;
+    81                                                 wire signed [WIDTH-1:0] x_flag_3_real;
+    82                                                 wire signed [WIDTH-1:0] x_flag_4_real;
+    83                                                 wire signed [WIDTH-1:0] x_flag_5_real;
+    84                                                 wire signed [WIDTH-1:0] x_flag_6_real;
+    85                                                 wire signed [WIDTH-1:0] x_flag_7_real;
+    86                                                 wire signed [WIDTH-1:0] x_flag_0_imag;
+    87                                                 wire signed [WIDTH-1:0] x_flag_1_imag;
+    88                                                 wire signed [WIDTH-1:0] x_flag_2_imag;
+    89                                                 wire signed [WIDTH-1:0] x_flag_3_imag;
+    90                                                 wire signed [WIDTH-1:0] x_flag_4_imag;
+    91                                                 wire signed [WIDTH-1:0] x_flag_5_imag;
+    92                                                 wire signed [WIDTH-1:0] x_flag_6_imag;
+    93                                                 wire signed [WIDTH-1:0] x_flag_7_imag;
+    94                                                 
+    95                                               /////////////////////////
+    96              1                         52     assign x_flag_0_real = x_in_0_real + x_in_4_real;
+    97              1                         52     assign x_flag_0_imag = x_in_0_imag + x_in_4_imag;
+    98                                               
+    99              1                        103     assign x_flag_1_real = x_in_1_real + (mult_temp_1_real >>> Q);
+    100             1                        103     assign x_flag_1_imag = x_in_1_imag + (mult_temp_1_imag >>> Q);
+    101                                              
+    102             1                         52     assign x_flag_2_real = x_in_2_real + x_in_6_imag;
+    103             1                         52     assign x_flag_2_imag = x_in_2_imag - x_in_6_real;
+    104                                              
+    105             1                        103     assign x_flag_3_real = x_in_3_real + (mult_temp_3_real >>> Q);
+    106             1                        103     assign x_flag_3_imag = x_in_3_imag + (mult_temp_3_imag >>> Q);
+    107                                              
+    108             1                         52     assign x_flag_4_real = x_in_0_real - x_in_4_real;
+    109             1                         52     assign x_flag_4_imag = x_in_0_imag - x_in_4_imag;
+    110                                              
+    111             1                        103     assign x_flag_5_real = x_in_1_real - (mult_temp_5_real >>> Q);
+    112             1                        103     assign x_flag_5_imag = x_in_1_imag - (mult_temp_5_imag >>> Q);
+    113                                              
+    114             1                         52     assign x_flag_6_real = x_in_2_real - x_in_6_imag;
+    115             1                         52     assign x_flag_6_imag = x_in_2_imag + x_in_6_real;
+    116                                              
+    117             1                        103     assign x_flag_7_real = x_in_3_real - (mult_temp_7_real >>> Q);
+    118             1                        103     assign x_flag_7_imag = x_in_3_imag - (mult_temp_7_imag >>> Q);
+    119                                              
+    120             1                         53       always @(posedge clk or negedge rst_n) begin
+    121                                                  if(!rst_n) begin
+    122             1                          2             x_out_0_real <= 0;
+    123             1                          2             x_out_1_real <= 0;
+    124             1                          2             x_out_2_real <= 0;
+    125             1                          2             x_out_3_real <= 0;
+    126             1                          2             x_out_4_real <= 0;
+    127             1                          2             x_out_5_real <= 0;
+    128             1                          2             x_out_6_real <= 0;
+    129             1                          2             x_out_7_real <= 0;
+    130             1                          2             x_out_0_imag <= 0;
+    131             1                          2             x_out_1_imag <= 0;
+    132             1                          2             x_out_2_imag <= 0;
+    133             1                          2             x_out_3_imag <= 0;
+    134             1                          2             x_out_4_imag <= 0;
+    135             1                          2             x_out_5_imag <= 0;
+    136             1                          2             x_out_6_imag <= 0;
+    137             1                          2             x_out_7_imag <= 0;
+    138                                                  end
+    139                                                  else begin
+    140             1                         51             x_out_0_real <= x_flag_0_real;
+    141             1                         51             x_out_1_real <= x_flag_1_real;
+    142             1                         51             x_out_2_real <= x_flag_2_real;
+    143             1                         51             x_out_3_real <= x_flag_3_real;
+    144             1                         51             x_out_4_real <= x_flag_4_real;
+    145             1                         51             x_out_5_real <= x_flag_5_real;
+    146             1                         51             x_out_6_real <= x_flag_6_real;
+    147             1                         51             x_out_7_real <= x_flag_7_real;
+    148             1                         51             x_out_0_imag <= x_flag_0_imag;
+    149             1                         51             x_out_1_imag <= x_flag_1_imag;
+    150             1                         51             x_out_2_imag <= x_flag_2_imag;
+    151             1                         51             x_out_3_imag <= x_flag_3_imag;
+    152             1                         51             x_out_4_imag <= x_flag_4_imag;
+    153             1                         51             x_out_5_imag <= x_flag_5_imag;
+    154             1                         51             x_out_6_imag <= x_flag_6_imag;
+    155             1                         51             x_out_7_imag <= x_flag_7_imag;
+    156                                                  end
+    157                                                end
+    158                                              
+    159                                              endmodule
+
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                         2         2         0     100.0
+
+================================Branch Details================================
+
+Branch Coverage for file fft_ThirdStage.v --
+
+------------------------------------IF Branch------------------------------------
+    121                                       53     Count coming in to IF
+    121             1                          2         if(!rst_n) begin
+    139             1                         51         else begin
+Branch totals: 2 hits of 2 branches = 100.0%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              0         0         0     100.0
+Expression Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Expression Terms             0         0         0     100.0
+FSM Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FSMs                                                       100.0
+        States                       0         0         0     100.0
+        Transitions                  0         0         0     100.0
+Toggle Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Toggle Bins                   1536      1536         0     100.0
+
+================================Toggle Details================================
+
+Toggle Coverage for File fft_ThirdStage.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+
+Total Node Count     =        768 
+Toggled Node Count   =        768 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =      100.0% (1536 of 1536 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 85.2%
+
+End time: 00:42:31 on Aug 17,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0

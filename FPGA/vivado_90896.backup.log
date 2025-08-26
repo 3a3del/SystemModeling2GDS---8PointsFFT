@@ -1,0 +1,83 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Aug 21 22:45:52 2025
+# Process ID: 90896
+# Current directory: /home/ICer/viv
+# Command line: vivado
+# Log file: /home/ICer/viv/vivado.log
+# Journal file: /home/ICer/viv/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/ICer/viv/fft_8.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:37 ; elapsed = 00:00:20 . Memory (MB): peak = 6488.602 ; gain = 83.105 ; free physical = 5013 ; free virtual = 17708
+update_compile_order -fileset sources_1
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 23:12:08 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 23:12:09 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+launch_runs: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 6777.785 ; gain = 0.000 ; free physical = 4928 ; free virtual = 17622
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 23:32:50 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 23:32:50 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+set_property board_part xilinx.com:ac701:part0:1.4 [current_project]
+WARNING: [Project 1-153] The current project device 'xc7k325tffg900-2' does not match with the device on the 'XILINX.COM:AC701:PART0:1.4' board part. A device change to match the device on 'XILINX.COM:AC701:PART0:1.4' board part is being done. Please upgrade the IP in the project via the upgrade_ip command or by selecting Reports => Reports IP Status.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [Project 1-152] Project part set to artix7 (xc7a200tfbg676-2)
+reset_property board_connections [get_projects fft_8]
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+reset_run synth_1
+launch_runs impl_1 -jobs 2
+[Thu Aug 21 23:57:22 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Thu Aug 21 23:57:23 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2
+INFO: [Netlist 29-17] Analyzing 170 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are:
+  general.maxThreads
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.69 . Memory (MB): peak = 7598.805 ; gain = 0.000 ; free physical = 3994 ; free virtual = 16695
+Restored from archive | CPU: 1.880000 secs | Memory: 5.902939 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.69 . Memory (MB): peak = 7598.805 ; gain = 0.000 ; free physical = 3994 ; free virtual = 16695
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 7598.805 ; gain = 0.000 ; free physical = 3994 ; free virtual = 16695
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:01:36 ; elapsed = 00:01:06 . Memory (MB): peak = 7791.430 ; gain = 1013.645 ; free physical = 3859 ; free virtual = 16561
+CRITICAL WARNING: [Timing 38-282] The design failed to meet the timing requirements. Please see the timing summary report for details on the timing violations.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Aug 22 00:13:55 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs impl_1 -to_step write_bitstream -jobs 2
+[Fri Aug 22 00:17:38 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+[Fri Aug 22 00:17:39 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.

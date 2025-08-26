@@ -1,0 +1,426 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Mon Aug 25 16:00:07 2025
+# Process ID: 4329
+# Current directory: /home/ICer/viv
+# Command line: vivado
+# Log file: /home/ICer/viv/vivado.log
+# Journal file: /home/ICer/viv/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/ICer/viv/fft_8.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/home/Xilinx/Vivado/2019.1/data/ip'.
+open_project: Time (s): cpu = 00:00:54 ; elapsed = 00:00:38 . Memory (MB): peak = 6526.840 ; gain = 103.477 ; free physical = 6187 ; free virtual = 18113
+synth_design -rtl -name rtl_1
+Command: synth_design -rtl -name rtl_1
+Starting synth_design
+Using part: xc7a200tfbg676-2
+Top: fft_8point_top
+INFO: [Device 21-403] Loading part xc7a200tfbg676-2
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:21 ; elapsed = 00:00:29 . Memory (MB): peak = 6910.512 ; gain = 153.496 ; free physical = 5708 ; free virtual = 17711
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'fft_8point_top' [/home/ICer/spy/fft_8point_top.v:1]
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter Q_inputs bound to: 6 - type: integer 
+	Parameter Q_outputs bound to: 5 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'fft_FirstStage' [/home/ICer/spy/fft_FirstStage.v:1]
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter Q bound to: 6 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'fft_FirstStage' (1#1) [/home/ICer/spy/fft_FirstStage.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fft_SecondStage' [/home/ICer/spy/fft_SecondStage.v:1]
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter Q_IN bound to: 6 - type: integer 
+	Parameter Q_OUT bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'fft_SecondStage' (2#1) [/home/ICer/spy/fft_SecondStage.v:1]
+INFO: [Synth 8-6157] synthesizing module 'fft_ThirdStage' [/home/ICer/spy/fft_ThirdStage.v:1]
+	Parameter WIDTH bound to: 8 - type: integer 
+	Parameter Q bound to: 5 - type: integer 
+	Parameter w1_8_real bound to: 8'sb10101001 
+	Parameter w1_8_imag bound to: 8'sb01010111 
+	Parameter w2_8_real bound to: 8'sb00000000 
+	Parameter w2_8_imag bound to: 8'sb11100000 
+	Parameter w3_8_real bound to: 8'sb01010111 
+	Parameter w3_8_imag bound to: 8'sb01010111 
+INFO: [Synth 8-6155] done synthesizing module 'fft_ThirdStage' (3#1) [/home/ICer/spy/fft_ThirdStage.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'fft_8point_top' (4#1) [/home/ICer/spy/fft_8point_top.v:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:25 ; elapsed = 00:00:35 . Memory (MB): peak = 6940.484 ; gain = 183.469 ; free physical = 5749 ; free virtual = 17754
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 6958.293 ; gain = 201.277 ; free physical = 5746 ; free virtual = 17751
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:39 . Memory (MB): peak = 6958.293 ; gain = 201.277 ; free physical = 5746 ; free virtual = 17751
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:24]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:25]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:26]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:29]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:30]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G13' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:31]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:32]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D13' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:36]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C13' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:37]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:40]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:41]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:42]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:44]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:47]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:48]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G11' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:49]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:52]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D11' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:54]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C11' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:55]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:58]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:59]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:60]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:62]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:65]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:66]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F9' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:68]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E9' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:69]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D9' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:70]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C9' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:71]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:72]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E8' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:78]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B8' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:81]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:82]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A8' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:84]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E7' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:87]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D7' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:88]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C7' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:89]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:92]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F6' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:95]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C6' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:98]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B6' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:99]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A6' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:100]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C5' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:107]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E4' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:114]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G3' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:119]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B3' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:126]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D2' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:131]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F1' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:138]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A1' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:145]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F26' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:147]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A26' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:154]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C25' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:159]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E24' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:166]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G23' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:171]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B23' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:178]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D22' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:188]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F21' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:193]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A21' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:200]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C20' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:207]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E19' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:212]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G18' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:219]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B18' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:224]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D17' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:231]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F16' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:238]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C16' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:241]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B16' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:242]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A16' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:243]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:248]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:249]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:250]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:251]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A15' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:252]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:253]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:254]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:257]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_3_imag[1] cannot be placed on D14 (IPAD_X1Y43) because the pad is already occupied by terminal x_in_0_real[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:258]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_3_imag[2] cannot be placed on C14 (IPAD_X1Y42) because the pad is already occupied by terminal x_in_0_real[4] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:259]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:260]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A14' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:261]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G13' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:262]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_3_imag[6] cannot be placed on F13 (IPAD_X1Y46) because the pad is already occupied by terminal x_in_0_imag[0] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:263]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_3_imag[7] cannot be placed on E13 (IPAD_X1Y47) because the pad is already occupied by terminal x_in_0_imag[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:264]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D13' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:267]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C13' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:268]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_4_real[2] cannot be placed on B13 (IPAD_X1Y55) because the pad is already occupied by terminal x_in_0_imag[4] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:269]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_4_real[3] cannot be placed on A13 (IPAD_X1Y54) because the pad is already occupied by terminal x_in_0_imag[5] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:270]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:271]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:272]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:273]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_4_real[7] cannot be placed on D12 (IPAD_X1Y61) because the pad is already occupied by terminal x_in_1_real[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:274]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_4_imag[0] cannot be placed on C12 (IPAD_X1Y60) because the pad is already occupied by terminal x_in_1_real[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:277]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:278]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A12' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:279]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G11' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:280]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_4_imag[4] cannot be placed on F11 (IPAD_X1Y44) because the pad is already occupied by terminal x_in_1_real[6] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:281]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_4_imag[5] cannot be placed on E11 (IPAD_X1Y45) because the pad is already occupied by terminal x_in_1_real[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:282]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D11' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:283]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C11' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:284]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_5_real[0] cannot be placed on B11 (IPAD_X1Y37) because the pad is already occupied by terminal x_in_1_imag[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:287]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_5_real[1] cannot be placed on A11 (IPAD_X1Y36) because the pad is already occupied by terminal x_in_1_imag[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:288]
+CRITICAL WARNING: [Common 17-69] Command failed: 'G10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:289]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:290]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:291]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_5_real[5] cannot be placed on D10 (OPAD_X0Y15) because the pad is already occupied by terminal x_in_1_imag[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:292]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_5_real[6] cannot be placed on C10 (OPAD_X0Y14) because the pad is already occupied by terminal x_in_2_real[0] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:293]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:294]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A10' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:297]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_5_imag[1] cannot be placed on G9 (IOB_X1Y187) because the pad is already occupied by terminal x_in_2_real[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:298]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F9' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:299]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E9' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:300]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D9' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:301]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C9' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:302]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_5_imag[6] cannot be placed on B9 (OPAD_X0Y13) because the pad is already occupied by terminal x_in_2_imag[0] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:303]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_5_imag[7] cannot be placed on A9 (OPAD_X0Y12) because the pad is already occupied by terminal x_in_2_imag[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:304]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_real[0] cannot be placed on G8 (IOB_X1Y195) because the pad is already occupied by terminal x_in_2_imag[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:307]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_real[1] cannot be placed on F8 (IOB_X1Y192) because the pad is already occupied by terminal x_in_2_imag[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:308]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E8' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:309]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_real[3] cannot be placed on D8 (OPAD_X0Y11) because the pad is already occupied by terminal x_in_2_imag[5] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:310]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_real[4] cannot be placed on C8 (OPAD_X0Y10) because the pad is already occupied by terminal x_in_2_imag[6] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:311]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B8' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:312]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A8' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:313]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_real[7] cannot be placed on G7 (IOB_X1Y193) because the pad is already occupied by terminal x_in_3_real[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:314]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_imag[0] cannot be placed on F7 (IOB_X1Y191) because the pad is already occupied by terminal x_in_3_real[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:317]
+CRITICAL WARNING: [Common 17-69] Command failed: 'E7' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:318]
+CRITICAL WARNING: [Common 17-69] Command failed: 'D7' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:319]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C7' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:320]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_imag[4] cannot be placed on B7 (OPAD_X0Y9) because the pad is already occupied by terminal x_in_3_real[6] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:321]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_imag[5] cannot be placed on A7 (OPAD_X0Y8) because the pad is already occupied by terminal x_in_3_real[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:322]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_imag[6] cannot be placed on G6 (IOB_X1Y189) because the pad is already occupied by terminal x_in_3_imag[0] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:323]
+CRITICAL WARNING: [Common 17-69] Command failed: 'F6' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:324]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[0] cannot be placed on E6 (IOB_X1Y198) because the pad is already occupied by terminal x_in_3_imag[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:327]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[1] cannot be placed on D6 (IOB_X1Y197) because the pad is already occupied by terminal x_in_3_imag[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:328]
+CRITICAL WARNING: [Common 17-69] Command failed: 'C6' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:329]
+CRITICAL WARNING: [Common 17-69] Command failed: 'B6' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:330]
+CRITICAL WARNING: [Common 17-69] Command failed: 'A6' is not a valid site or package pin name. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:331]
+INFO: [Common 17-14] Message 'Common 17-69' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:331]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[5] cannot be placed on G5 (IOB_X1Y176) because the pad is already occupied by terminal x_in_3_imag[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:332]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[6] cannot be placed on F5 (IOB_X1Y175) because the pad is already occupied by terminal x_in_4_real[0] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:333]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[7] cannot be placed on E5 (IOB_X1Y174) because the pad is already occupied by terminal x_in_4_real[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:334]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[0] cannot be placed on D5 (IOB_X1Y173) because the pad is already occupied by terminal x_in_4_real[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:337]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[2] cannot be placed on B5 (IOB_X1Y170) because the pad is already occupied by terminal x_in_4_real[4] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:339]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[3] cannot be placed on A5 (IOB_X1Y169) because the pad is already occupied by terminal x_in_4_real[5] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:340]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[4] cannot be placed on G4 (IOB_X1Y178) because the pad is already occupied by terminal x_in_4_real[6] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:341]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[5] cannot be placed on F4 (IOB_X1Y177) because the pad is already occupied by terminal x_in_4_real[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:342]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[7] cannot be placed on D4 (IOB_X1Y172) because the pad is already occupied by terminal x_in_4_imag[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:344]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[0] cannot be placed on E6 (IOB_X1Y198) because the pad is already occupied by terminal x_in_3_imag[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:350]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[1] cannot be placed on D6 (IOB_X1Y197) because the pad is already occupied by terminal x_in_3_imag[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:351]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[5] cannot be placed on G5 (IOB_X1Y176) because the pad is already occupied by terminal x_in_3_imag[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:355]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[6] cannot be placed on F5 (IOB_X1Y175) because the pad is already occupied by terminal x_in_4_real[0] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:356]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[7] cannot be placed on E5 (IOB_X1Y174) because the pad is already occupied by terminal x_in_4_real[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:357]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[0] cannot be placed on D5 (IOB_X1Y173) because the pad is already occupied by terminal x_in_4_real[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:360]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[2] cannot be placed on B5 (IOB_X1Y170) because the pad is already occupied by terminal x_in_4_real[4] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:362]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[3] cannot be placed on A5 (IOB_X1Y169) because the pad is already occupied by terminal x_in_4_real[5] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:363]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[4] cannot be placed on G4 (IOB_X1Y178) because the pad is already occupied by terminal x_in_4_real[6] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:364]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[5] cannot be placed on F4 (IOB_X1Y177) because the pad is already occupied by terminal x_in_4_real[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:365]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[7] cannot be placed on D4 (IOB_X1Y172) because the pad is already occupied by terminal x_in_4_imag[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:367]
+Finished Parsing XDC File [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7105.965 ; gain = 0.000 ; free physical = 5632 ; free virtual = 17654
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:01:25 ; elapsed = 00:01:21 . Memory (MB): peak = 7137.598 ; gain = 380.582 ; free physical = 5500 ; free virtual = 17534
+13 Infos, 0 Warnings, 155 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:04 ; elapsed = 00:01:55 . Memory (MB): peak = 7137.598 ; gain = 585.809 ; free physical = 5500 ; free virtual = 17534
+update_compile_order -fileset sources_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Mon Aug 25 16:06:40 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a200tfbg676-2
+INFO: [Netlist 29-17] Analyzing 170 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:32]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:35]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:42]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:51]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:52]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:61]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:62]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:64]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:74]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:75]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:79]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:80]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:90]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:91]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:258]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:259]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:263]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:264]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:269]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:270]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:274]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:277]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:281]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:282]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:287]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:288]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:292]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:293]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_5_imag[1] cannot be placed on G9 (IOB_X1Y187) because the pad is already occupied by terminal x_in_2_real[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:298]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:303]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:304]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_real[0] cannot be placed on G8 (IOB_X1Y195) because the pad is already occupied by terminal x_in_2_imag[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:307]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_real[1] cannot be placed on F8 (IOB_X1Y192) because the pad is already occupied by terminal x_in_2_imag[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:308]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:310]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:311]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_real[7] cannot be placed on G7 (IOB_X1Y193) because the pad is already occupied by terminal x_in_3_real[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:314]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_imag[0] cannot be placed on F7 (IOB_X1Y191) because the pad is already occupied by terminal x_in_3_real[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:317]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:321]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Site location is not valid [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:322]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_6_imag[6] cannot be placed on G6 (IOB_X1Y189) because the pad is already occupied by terminal x_in_3_imag[0] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:323]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[0] cannot be placed on E6 (IOB_X1Y198) because the pad is already occupied by terminal x_in_3_imag[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:327]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[1] cannot be placed on D6 (IOB_X1Y197) because the pad is already occupied by terminal x_in_3_imag[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:328]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[5] cannot be placed on G5 (IOB_X1Y176) because the pad is already occupied by terminal x_in_3_imag[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:332]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[6] cannot be placed on F5 (IOB_X1Y175) because the pad is already occupied by terminal x_in_4_real[0] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:333]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[7] cannot be placed on E5 (IOB_X1Y174) because the pad is already occupied by terminal x_in_4_real[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:334]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[0] cannot be placed on D5 (IOB_X1Y173) because the pad is already occupied by terminal x_in_4_real[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:337]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[2] cannot be placed on B5 (IOB_X1Y170) because the pad is already occupied by terminal x_in_4_real[4] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:339]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[3] cannot be placed on A5 (IOB_X1Y169) because the pad is already occupied by terminal x_in_4_real[5] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:340]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[4] cannot be placed on G4 (IOB_X1Y178) because the pad is already occupied by terminal x_in_4_real[6] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:341]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[5] cannot be placed on F4 (IOB_X1Y177) because the pad is already occupied by terminal x_in_4_real[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:342]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_imag[7] cannot be placed on D4 (IOB_X1Y172) because the pad is already occupied by terminal x_in_4_imag[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:344]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[0] cannot be placed on E6 (IOB_X1Y198) because the pad is already occupied by terminal x_in_3_imag[2] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:350]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[1] cannot be placed on D6 (IOB_X1Y197) because the pad is already occupied by terminal x_in_3_imag[3] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:351]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[5] cannot be placed on G5 (IOB_X1Y176) because the pad is already occupied by terminal x_in_3_imag[7] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:355]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[6] cannot be placed on F5 (IOB_X1Y175) because the pad is already occupied by terminal x_in_4_real[0] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:356]
+CRITICAL WARNING: [Vivado 12-1411] Cannot set LOC property of ports, Terminal x_out_7_real[7] cannot be placed on E5 (IOB_X1Y174) because the pad is already occupied by terminal x_in_4_real[1] possibly due to user constraint [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:357]
+INFO: [Common 17-14] Message 'Vivado 12-1411' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:357]
+Finished Parsing XDC File [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7139.598 ; gain = 0.000 ; free physical = 5524 ; free virtual = 17596
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:20 ; elapsed = 00:00:12 . Memory (MB): peak = 7180.617 ; gain = 41.020 ; free physical = 5460 ; free virtual = 17533
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+report_timing_summary: Time (s): cpu = 00:00:11 ; elapsed = 00:00:06 . Memory (MB): peak = 7782.496 ; gain = 127.172 ; free physical = 4543 ; free virtual = 16650
+launch_runs impl_1 -jobs 2
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7783.496 ; gain = 0.000 ; free physical = 4554 ; free virtual = 16662
+INFO: [Timing 38-480] Writing timing data to binary archive.
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.09 . Memory (MB): peak = 7827.383 ; gain = 8.906 ; free physical = 4545 ; free virtual = 16653
+[Mon Aug 25 16:19:55 2025] Launched impl_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/impl_1/runme.log
+close_design
+open_run impl_1
+INFO: [Netlist 29-17] Analyzing 170 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are:
+  general.maxThreads
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:00.22 . Memory (MB): peak = 7827.387 ; gain = 0.000 ; free physical = 4517 ; free virtual = 16633
+Restored from archive | CPU: 0.220000 secs | Memory: 1.331062 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00.22 ; elapsed = 00:00:00.22 . Memory (MB): peak = 7827.387 ; gain = 0.000 ; free physical = 4517 ; free virtual = 16633
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7827.387 ; gain = 0.000 ; free physical = 4517 ; free virtual = 16633
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:19 ; elapsed = 00:00:11 . Memory (MB): peak = 7876.758 ; gain = 49.371 ; free physical = 4489 ; free virtual = 16605
+WARNING: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Tue Aug 26 01:25:24 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a200tfbg676-2
+INFO: [Netlist 29-17] Analyzing 170 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:31]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:41]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:51]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:61]
+Finished Parsing XDC File [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 7877.348 ; gain = 0.000 ; free physical = 4301 ; free virtual = 16416
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:17 ; elapsed = 00:00:13 . Memory (MB): peak = 7980.930 ; gain = 104.172 ; free physical = 4262 ; free virtual = 16377
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+[Tue Aug 26 01:28:57 2025] Launched synth_1...
+Run output will be captured here: /home/ICer/viv/fft_8.runs/synth_1/runme.log
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+refresh_design
+INFO: [Netlist 29-17] Analyzing 170 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:31]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:41]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:51]
+CRITICAL WARNING: [Vivado 12-1815] Setting property 'IOSTANDARD' is not allowed for GT terminals. [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc:61]
+Finished Parsing XDC File [/home/ICer/viv/fft_8.srcs/constrs_1/new/cons.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+refresh_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:18 . Memory (MB): peak = 8090.188 ; gain = 32.035 ; free physical = 4152 ; free virtual = 16267
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 4 CPUs
+report_power -name {power_1}
+Command: report_power -name power_1
+CRITICAL WARNING: [Power 33-250] I/O Port clk is Single-Ended but has an IOStandard of DIFF_SSTL15 which can only support Differential.
+Resolution: Assign the appropriate IO standard.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+0 Infos, 0 Warnings, 1 Critical Warnings and 0 Errors encountered.
+report_power completed successfully
+report_power: Time (s): cpu = 00:00:09 ; elapsed = 00:00:06 . Memory (MB): peak = 8105.129 ; gain = 14.941 ; free physical = 3987 ; free virtual = 16102
+exit
